@@ -14,9 +14,11 @@ import 'package:cenem/view/onbonding/authentication/componants/animationRive.dar
 import 'package:cenem/view/onbonding/authentication/componants/customPosition.dart';
 
 class SignInForm extends StatefulWidget {
-  double width;
-  double height;
+  final double width;
+  final double height;
+
   SignInForm(this.width, this.height);
+
   final SignInController sauthController = Get.put(SignInController());
   final AuthController authController = Get.put(AuthController());
 
@@ -28,80 +30,73 @@ class StateSignInForm extends State<SignInForm> {
   @override
   Widget build(BuildContext context) {
     return Obx(
-      () => Stack(children: [
-        Padding(
-          padding: EdgeInsets.all(0),
-          child: Column(
-            children: [
-              CustomTextField(
-                controller: widget.authController.emailsignController,
-                hintText: 'البريد الإلكتروني',
-                keyboardType: TextInputType.emailAddress,
-                prefixIcon: const Icon(Icons.email),
-                validator: (value) {
-                  widget.sauthController.validateEmailsign(value ?? '');
-                  return widget.sauthController.emailsignError.value.isNotEmpty
-                      ? widget.sauthController.emailsignError.value
-                      : null;
-                },
-              ),
-              Obx(
-                () => Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    widget.sauthController.emailsignError.value,
-                    style: const TextStyle(color: Colors.red),
+      () => Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(0),
+            child: Column(
+              children: [
+                CustomTextField(
+                  controller: widget.authController.emailsignController,
+                  hintText: 'البريد الإلكتروني',
+                  keyboardType: TextInputType.emailAddress,
+                  prefixIcon: const Icon(Icons.email),
+                  validator: (value) {
+                    widget.sauthController.validateEmailsign(value ?? '');
+                    return widget
+                            .sauthController.emailsignError.value.isNotEmpty
+                        ? widget.sauthController.emailsignError.value
+                        : null;
+                  },
+                  autofillHints: [AutofillHints.email],
+                ),
+                Obx(
+                  () => Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      widget.sauthController.emailsignError.value,
+                      style: const TextStyle(color: Colors.red),
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(height: widget.height * 0.006),
-              CustomTextField(
-                controller: widget.authController.passsignController,
-                hintText: 'كلمة المرور',
-                obscureText: true,
-                prefixIcon: const Icon(Icons.lock),
-                validator: (value) {
-                  widget.sauthController.validatePasswordsign(value ?? '');
-                  return widget
-                          .sauthController.passwordsignError.value.isNotEmpty
-                      ? widget.sauthController.passwordsignError.value
-                      : null;
-                },
-                keyboardType: TextInputType.text,
-              ),
-              Obx(
-                () => Align(
-                  alignment: Alignment.centerRight,
-                  child: Text(
-                    widget.sauthController.passwordsignError.value,
-                    style: const TextStyle(color: Colors.red),
+                SizedBox(height: widget.height * 0.006),
+                CustomTextField(
+                  controller: widget.authController.passsignController,
+                  hintText: 'كلمة المرور',
+                  obscureText: true,
+                  prefixIcon: const Icon(Icons.lock),
+                  validator: (value) {
+                    widget.sauthController.validatePasswordsign(value ?? '');
+                    return widget
+                            .sauthController.passwordsignError.value.isNotEmpty
+                        ? widget.sauthController.passwordsignError.value
+                        : null;
+                  },
+                  keyboardType: TextInputType.text,
+                ),
+                Obx(
+                  () => Align(
+                    alignment: Alignment.centerRight,
+                    child: Text(
+                      widget.sauthController.passwordsignError.value,
+                      style: const TextStyle(color: Colors.red),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
-        ),
-        // Loading and confetti animations
-
-        widget.authController.isShowLoading.value
-            ? CustomPositioned(
-                child: LoadingAnimationWidget.discreteCircle(
-                  color: second,
-                  size: 100,
-                ),
-              )
-            : const SizedBox(),
-        // auth.isShowConfetti.value
-        //     ? const CustomPositioned(
-        //         scale: 6,
-        //         child: RiveAnimation.asset(
-        //           "assets/images/confetti.riv",
-        //           onInit: onConfettiRiveInit,
-        //           fit: BoxFit.cover,
-        //         ),
-        //       )
-        //     : const SizedBox(),
-      ]),
+          // Loading animation
+          widget.authController.isShowLoading.value
+              ? CustomPositioned(
+                  child: LoadingAnimationWidget.discreteCircle(
+                    color: second,
+                    size: 100,
+                  ),
+                )
+              : const SizedBox(),
+        ],
+      ),
     );
   }
 }

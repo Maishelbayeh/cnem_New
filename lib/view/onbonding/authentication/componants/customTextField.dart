@@ -9,7 +9,8 @@ class CustomTextField extends StatefulWidget {
   final FormFieldValidator<String>? validator;
   final Widget? prefixIcon;
   final Widget? suffixIcon;
-  final TextInputType? keyboardType; // New parameter for keyboard type
+  final TextInputType? keyboardType; // For keyboard type
+  final List<String>? autofillHints; // New parameter for autofill hints
 
   const CustomTextField({
     Key? key,
@@ -20,13 +21,16 @@ class CustomTextField extends StatefulWidget {
     this.prefixIcon,
     required this.keyboardType,
     this.suffixIcon,
+    this.autofillHints, // Optional autofill hints
   }) : super(key: key);
+
   @override
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
   late bool _obscureText;
+
   @override
   void initState() {
     super.initState();
@@ -43,6 +47,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         keyboardType: widget.keyboardType,
         validator: widget.validator,
         textAlign: TextAlign.right, // Align text to the right
+        autofillHints: widget.autofillHints, // Add autofill hints here
         decoration: InputDecoration(
           labelText: widget.hintText,
           hintText: widget.hintText,

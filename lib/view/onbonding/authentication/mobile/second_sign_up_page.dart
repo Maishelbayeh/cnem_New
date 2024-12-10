@@ -503,63 +503,83 @@ class SecondSignUpPage extends StatelessWidget {
                   ],
                 );
               }),
-              Obx(() => CustomButton(
-                  buttonText: 'التالي',
-                  width: MediaQuery.of(context).size.width,
-                  height: 40,
-                  enabled: controller.isChecked.value,
-                  onTap: () async {
-                    // controller.clearForm();
-                    controller.printValidationResults();
-                    //print(controller.parentTokenController.text);
-                    if (controller.validateForm()) {
-                      if (!controller.heardFromPerson.value) {
-                        controller.parentTokenController.text = "00000";
-                        showPaymentProfessionalErrorDialog(context);
-                      }
-                      auth.isShowLoading.value = true;
+              Obx(() => Stack(
+                    children: [
+                      // Main UI including the button
+                      Column(
+                        children: [
+                          CustomButton(
+                            buttonText: 'التالي',
+                            width: MediaQuery.of(context).size.width,
+                            enabled: controller.isChecked.value,
+                            onTap: () async {
+                              controller.printValidationResults();
+                              if (controller.validateForm()) {
+                                if (!controller.heardFromPerson.value) {
+                                  controller.parentTokenController.text =
+                                      "00000";
+                                  showPaymentProfessionalErrorDialog(context);
+                                }
 
-                      if (await controller.addMember(context)) {
-                        auth.isShowLoading.value = true;
-                        await fetchOffspringMembers(user.userId);
+                                if (await controller.addMember(context)) {
+                                  auth.isShowLoading.value = true;
 
-                        await Future.delayed(Duration(seconds: 1));
-                        fetchSubscription();
-                        await Future.delayed(Duration(seconds: 1));
-                      }
-                      if (sub?.currentPaymentNow != 1.0) {
-                        auth.isShowLoading.value = false;
-                        showDialog(
-                          context: context,
-                          builder: (context) {
-                            return ProfessionalDialog(
-                              onConfirm: () {
-                                print("تم تأكيد الدفع");
-                                Navigator.of(context).pop();
-                              },
-                              onCancel: () {
-                                print("تم إلغاء الدفع");
-                                Navigator.of(context).pop();
-                              },
-                            );
-                          },
-                        );
-                        Get.toNamed("/Home");
-                      } else {
-                        Navigator.of(context).pop();
-                      }
-                      auth.isShowLoading.value = false;
-                      controller.clearForm();
-                      await fetchOffspringMembers(user.userId);
+                                  await fetchOffspringMembers(user.userId);
+                                  await Future.delayed(Duration(seconds: 1));
+                                  fetchSubscription();
+                                  await Future.delayed(Duration(seconds: 1));
 
-                      await fetchSubscription();
+                                  Get.snackbar(
+                                    'نجاح',
+                                    'تم التسجيل بنجاح',
+                                    snackPosition: SnackPosition.TOP,
+                                  );
+                                  Get.toNamed("/Home");
+                                }
+                                if (sub?.currentPaymentNow != 1.0) {
+                                  auth.isShowLoading.value = false;
+                                  showDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return ProfessionalDialog(
+                                        onConfirm: () {
+                                          print("تم تأكيد الدفع");
+                                          Navigator.of(context).pop();
+                                        },
+                                        onCancel: () {
+                                          print("تم إلغاء الدفع");
+                                          Navigator.of(context).pop();
+                                        },
+                                      );
+                                    },
+                                  );
+                                } else {
+                                  Navigator.of(context).pop();
+                                }
+                                auth.isShowLoading.value = false;
+                                controller.clearForm();
+                                await fetchOffspringMembers(user.userId);
 
-                      auth.isShowLoading.value = false;
-                    }
-                    auth.isShowLoading.value = false;
-                    controller.clearForm();
-                    //print("empty");
-                  })),
+                                await fetchSubscription();
+                              }
+                              controller.clearForm();
+                            },
+                          ),
+                        ],
+                      ),
+                      // Loader widget when isShowLoading is true
+                      if (auth.isShowLoading.value)
+                        Container(
+                          color: second
+                              .withOpacity(0.5), // Semi-transparent background
+                          child: const Center(
+                            child: CircularProgressIndicator(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                    ],
+                  )),
             ],
           ),
         ),

@@ -46,7 +46,7 @@ String apiKey = '';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await GetStorage.init();
-
+  await GetStorage.init();
   // Load environment variables from a remote URL
 
   Get.put(SecondSignFormController());

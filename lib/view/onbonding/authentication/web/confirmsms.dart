@@ -36,7 +36,12 @@ class _ConfirmsmsDialogState extends State<ConfirmsmsDialog> {
       var offspringMembers = await fetchOffspringMembers(user.userId);
 
       if (offspringMembers == null) {
-        _navigationController.currentPage('/Confirm condition');
+        if (!Responsive.isDesktop(context)) {
+          Get.toNamed('/Home/SiteCondition');
+        } else {
+          _navigationController.currentPage('/Confirm condition');
+        }
+
         Get.snackbar(
           'نجاح',
           'تم تاكيد رقم الهاتف بنجاح',

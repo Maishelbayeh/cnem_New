@@ -1,5 +1,6 @@
 import 'package:cenem/view/onbonding/authentication/componants/checkpass.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
 class SignInController extends GetxController {
   var emailsignError = ''.obs;
@@ -8,10 +9,10 @@ class SignInController extends GetxController {
   var isShowLoading = false.obs;
   var isShowConfetti = false.obs;
   var errorMessage = ''.obs; // Observable to hold error messages
-
+  var enteredEmails = <String>[].obs; // List to store entered emails
   // Regular expression for validating email
   final RegExp emailRegExp = RegExp(r'^[^@]+@[^@]+\.[^@]+');
-
+  final box = GetStorage();
   void validateEmailsign(String value) {
     try {
       if (value.isEmpty) {
@@ -43,6 +44,14 @@ class SignInController extends GetxController {
     } catch (e) {
       errorMessage.value = 'الرجاء التاكد من كلمه المرور';
       //print('الرجاء التاكد من كلمه المرور');
+    }
+  }
+
+  void addEmailToList(String email) {
+    final emails = enteredEmails;
+    if (!emails.contains(email)) {
+      emails.add(email);
+      box.write('emails', emails); // Persist the emails
     }
   }
 }
