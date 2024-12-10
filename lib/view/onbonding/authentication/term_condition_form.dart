@@ -1,15 +1,15 @@
-import 'package:cenem/controllers/navigation_controller.dart';
-import 'package:cenem/view%20model/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cenem/controllers/auth_controller.dart';
+import 'package:cenem/controllers/navigation_controller.dart';
+import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/res/constants.dart';
 
 class TermsAndConditionsPage extends StatefulWidget {
   const TermsAndConditionsPage({Key? key}) : super(key: key);
 
   @override
-  _TermsAndConditionsPageState createState() => _TermsAndConditionsPageState();
+  State<TermsAndConditionsPage> createState() => _TermsAndConditionsPageState();
 }
 
 class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
@@ -36,13 +36,14 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
     if (Responsive.isExtraLargeScreen(context) ||
         Responsive.isDesktop(context)) {
       Get.find<DialogNavigationController>().currentPage('/Addmember');
-    } else
+    } else {
       Get.toNamed('/Home/SiteCondition/AddMember');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    double baseFontSize = Responsive.isLargeMobile(context) ? 14 : 14.0;
+    final double baseFontSize = Responsive.isLargeMobile(context) ? 14 : 14.0;
 
     return Scaffold(
       appBar: AppBar(
@@ -50,7 +51,10 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
         elevation: 0,
         title: const Text(
           'سـيـاسـات وشـروطـ العـضـويـة فـي الشــبكـة',
-          style: TextStyle(color: second, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            color: second,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
       body: SingleChildScrollView(
@@ -87,10 +91,7 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               baseFontSize,
             ),
             _buildTermText(
-              "8 - رسوم العضوية والانتساب والشهادة (الأسعار أو نوع العملة قابلة للتغير مستقبلاً):\n"
-              "  • الانتساب: 25 دولار لمرة واحدة فقط.\n"
-              "  • الشهرية: 25 دولار.\n"
-              "  • الشهادة: 20 دولار لكل شهادة.",
+              "8 - رسوم العضوية والانتساب والشهادة (الأسعار أو نوع العملة قابلة للتغير مستقبلاً):\n  • الانتساب: 25 دولار لمرة واحدة فقط.\n  • الشهرية: 25 دولار.\n  • الشهادة: 20 دولار لكل شهادة.",
               baseFontSize,
             ),
             _buildTermText(
@@ -98,12 +99,7 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               baseFontSize,
             ),
             _buildTermText(
-              "10 – مسميات العضوية في الشبكة:\n"
-              "  أ. منتسب: يدفع رسوم الانتساب + الرسوم الشهرية. لا يحصل على عمولات من الفريق.\n"
-              "  ب. عضو ملتزم: يحصل على عمولات من الأعضاء الملتزمين فقط.\n"
-              "  ج. عضو مجمد: يُسمح له بالدفع خلال الشهر للحفاظ على الفريق لكنه يخسر العمولة للشهر المتأخر.\n"
-              "  د. عضو موقوف: يخسر الفريق والرقم الخاص بالشبكة.\n"
-              "  هـ. عضو مفصول: يخسر جميع العمولات ولا يُسمح له بالعودة.",
+              "10 – مسميات العضوية في الشبكة:\n  أ. منتسب: يدفع رسوم الانتساب + الرسوم الشهرية. لا يحصل على عمولات من الفريق.\n  ب. عضو ملتزم: يحصل على عمولات من الأعضاء الملتزمين فقط.\n  ج. عضو مجمد: يُسمح له بالدفع خلال الشهر للحفاظ على الفريق لكنه يخسر العمولة للشهر المتأخر.\n  د. عضو موقوف: يخسر الفريق والرقم الخاص بالشبكة.\n  هـ. عضو مفصول: يخسر جميع العمولات ولا يُسمح له بالعودة.",
               baseFontSize,
             ),
             _buildTermText(
@@ -111,9 +107,7 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               baseFontSize,
             ),
             _buildTermText(
-              "12 – نظام احتساب المكافئات:\n"
-              "  أ. تسجيل 50 منتسب جديد خلال 3 أشهر.\n"
-              "  ب. لا يحق المطالبة بالمكافأة إذا لم يرغب بالمشاركة بالرحلة.",
+              "12 – نظام احتساب المكافئات:\n  أ. تسجيل 50 منتسب جديد خلال 3 أشهر.\n  ب. لا يحق المطالبة بالمكافأة إذا لم يرغب بالمشاركة بالرحلة.",
               baseFontSize,
             ),
             _buildTermText(
@@ -133,12 +127,12 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
               child: ElevatedButton(
                 onPressed: _onNextPressed,
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: second, // Background color
-                  foregroundColor: Colors.white, // Text color
+                  backgroundColor: second,
+                  foregroundColor: Colors.white,
                   padding: const EdgeInsets.symmetric(
                     horizontal: 100.0,
                     vertical: 20.0,
-                  ), // Padding inside the button
+                  ),
                 ),
                 child: const Text(
                   "التالي",

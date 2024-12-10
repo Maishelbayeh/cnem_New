@@ -8,6 +8,8 @@ import 'package:cenem/res/variables.dart';
 import 'package:cenem/services/childrencount.dart';
 import 'package:cenem/services/countsave.dart';
 import 'package:cenem/services/saveMember.dart';
+import 'package:cenem/user/pages/users/settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 Future<void> initializeMem() async {
   MemberService memberService = MemberService();
@@ -26,6 +28,15 @@ Future<void> initializeSubscription() async {
   Subscription? loadedSubscription = subscriptionService.loadSubscription();
   if (loadedSubscription != null) {
     sub = loadedSubscription;
+  }
+}
+
+void loadSavedEmail() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? savedEmail = prefs.getString('saved_email');
+  if (savedEmail != null) {
+    authController.emailsignController.text = savedEmail;
+    authController.toggleRememberMe(true);
   }
 }
 

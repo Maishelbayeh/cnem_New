@@ -45,6 +45,8 @@ class ApiService {
           'Failed to load offspring members: ${response.reasonPhrase}');
     }
   }
+
+  static resetPassword(String text) {}
 }
 
 // Future<void> main() async {
