@@ -4,39 +4,226 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final Map<String, String> discordLinks = {
-  "أدوات الذكاء الاصطناعي": "https://discord.gg/2SqrNNA5eV",
-  "إجابة الاستبيان": "https://discord.gg/MmCuJZQkNc",
-  "البودكاست": "https://discord.gg/8mfVwPdFBY",
-  "ecwid": "https://discord.gg/BrXVmC23f3",
-  "wix": "https://discord.gg/nUMFbC6cYs",
-  "ووردبريس": "https://discord.gg/hJwdZpf7WJ",
-  "تيلجرام": "https://discord.gg/fyqNfmfq4n",
-  "تيك توك": "https://discord.gg/twEg6J5zUT",
-  "انستغرام": "https://discord.gg/w7vpzHerRg",
-  "فيسبوك": "https://discord.gg/VWcQySHxen",
-  "أدوات الاعمال": "https://discord.gg/nQ289ZjZnJ",
-  "مدير الإعلانات": "https://discord.gg/h5mv2GrEZf",
-  "يوتيوب": "https://discord.gg/fTcbCT7F6R",
-  "تويتر": "https://discord.gg/ZjNf4S86Kf",
-  "سوشلجي": "https://discord.gg/PwtXg6jYFh",
-  "سناب شات": "https://discord.gg/Hwv2mqkxfE",
-  "إرشادات قانونية": "https://discord.gg/TUQmgbVgFZ",
-  "دليل الوزارات": "https://discord.gg/BydspZFNtX",
-  "مستقل": "https://discord.gg/3uX6E5A7dC",
-  "خمسات": "https://discord.gg/7GZewXPJf6",
-  "ثري دي ماكس": "https://discord.gg/7eCaS4CAtQ",
-  "فوتوشوب": "https://discord.gg/Dfqk7uRAY9",
-  "اوتوكاد": "https://discord.gg/dmzJMJqGJz",
-  "كانفا": "https://discord.gg/abyHDqFpQt",
-  "كاب كت": "https://discord.gg/2vAc7SjvBm",
-  "المصمم العربي": "https://discord.gg/rAr4HkbDkB",
-  "بيع الصور": "https://discord.gg/w46SeATN3n",
-  "سماع الأغاني": "https://discord.gg/6MdsV9vqh4",
-  "مشاهدة الأفلام": "https://discord.gg/KShwPPj9kU",
-  "العاب": "https://discord.gg/VdNg5M3fsH",
-  "drop-shopping": "https://discord.gg/tyfKaMKZxm"
-};
+final List<Map<String, dynamic>> discordLinks = [
+  {
+    'name': 'ecwid',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/BrXVmC23f3"),
+    'trainer': ''
+  },
+  {
+    'name': 'wix',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/nUMFbC6cYs"),
+    'trainer': ''
+  },
+  {
+    'name': 'ووردبريس',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/hJwdZpf7WJ"),
+    'trainer': ''
+  },
+  //////////////////////////سوشال ميديا
+  {
+    'name': 'تيلجرام',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/fyqNfmfq4n"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'تيك توك',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/twEg6J5zUT"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'انستغرام',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/w7vpzHerRg"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'فيس بوك',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/VWcQySHxen"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'أدوات الاعمال',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/nQ289ZjZnJ"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'مدير الإعلانات',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/h5mv2GrEZf"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'يوتيوب',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/fTcbCT7F6R"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'منصة x ',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/ZjNf4S86Kf"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'سوشلجي',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/PwtXg6jYFh"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'سناب شات',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/Hwv2mqkxfE"),
+    'trainer': 'ابراهيم احمد'
+  },
+  ///////////////////////////////عمل حر
+  {
+    'name': 'مستقل',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/3uX6E5A7dC"),
+    'trainer': 'ابراهيم احمد'
+  },
+  {
+    'name': 'خمسات ',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/7GZewXPJf6"),
+    'trainer': 'ابراهيم احمد'
+  },
+  ///////////////////////////// تصميم
+  {
+    'name': 'ثري دي ماكس',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/7eCaS4CAtQ"),
+    'trainer': 'ضحى احمد'
+  },
+  {
+    'name': 'فوتوشوب',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/Dfqk7uRAY9"),
+    'trainer': 'جيهان كخن'
+  },
+  {
+    'name': 'اوتوكاد',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/dmzJMJqGJz"),
+    'trainer': 'ضحى احمد'
+  },
+  {
+    'name': 'كانفا',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/abyHDqFpQt"),
+    'trainer': 'جيهان كخن'
+  },
+  {
+    'name': 'كاب كات',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/2vAc7SjvBm"),
+    'trainer': 'جيهان كخن'
+  },
+  {
+    'name': 'المصمم العربي',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/rAr4HkbDkB"),
+    'trainer': '',
+  },
+  ///////////////////////////// محافظ
+  {
+    'name': 'جوال',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/NCnrmkQQH9"),
+    'trainer': '',
+  },
+  {
+    'name': 'تطبيق البنك العربي',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/xDFCq62Pry"),
+    'trainer': '',
+  },
+  {
+    'name': 'تطبيق بنك فلسطين',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/NSwM2Xu7W5"),
+    'trainer': '',
+  },
+  /////////////////////////////// ربح عن طريق الانترنت
+  {
+    'name': 'بيع الصور',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/w46SeATN3n"),
+    'trainer': '',
+  },
+  {
+    'name': 'سماع الاغاني',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/6MdsV9vqh4"),
+    'trainer': '',
+  },
+  {
+    'name': 'مشاهدة الافلام',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/KShwPPj9kU"),
+    'trainer': '',
+  },
+  {
+    'name': 'العاب',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/VdNg5M3fsH"),
+    'trainer': '',
+  },
+  {
+    'name': 'drop-shopping',
+    'image': '',
+    'link': Uri.parse("https://discord.gg/tyfKaMKZxm"),
+    'trainer': '',
+  },
+];
+
+final List<Map<String, dynamic>> coursesMoney = [
+  {
+    'name': 'ادوات الذكاء الاصطناعي',
+    'image': 'assets/aitool.jpeg',
+  },
+  {
+    'name': 'إجابة الاستبيان',
+    'image': '',
+  },
+  {
+    'name': 'البودكاست',
+    'image': '',
+  },
+  {
+    'name': 'المتاجر الالكتروني',
+    'image': 'assets/Ecommerce.jpeg',
+  },
+  {
+    'name': 'سوشال ميديا',
+    'image': 'assets/socialmedia.jpeg',
+  },
+  {
+    'name': 'العمل الحر',
+    'image': 'assets/onlineworking.jpeg',
+  },
+  {
+    'name': 'محافظ البنكية',
+    'image': 'assets/bankpocket.jpeg',
+  },
+  {
+    'name': 'برامج التصميم',
+    'image': 'assets/design.jpeg',
+  },
+  {
+    'name': 'الربح عن طريق الانترنت',
+    'image': 'assets/profitviainternet.jpeg',
+  },
+];
 
 class ChannelSectionLarge extends StatefulWidget {
   const ChannelSectionLarge({super.key});
@@ -46,18 +233,102 @@ class ChannelSectionLarge extends StatefulWidget {
 }
 
 class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
-  String? selectedValue;
   double height = 600.0;
-  List<String> filteredChannels = discordLinks.keys.toList();
-  TextEditingController searchController = TextEditingController();
 
-  // Function to filter channels based on the search input
-  void _filterChannels(String query) {
-    final filtered =
-        discordLinks.keys.where((channel) => channel.contains(query)).toList();
-    setState(() {
-      filteredChannels = filtered;
-    });
+  // Function to show a dialog with course information
+  void _showCourseDialog() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView.builder(
+              itemCount: discordLinks.length, // Use the length of discordLinks
+              itemBuilder: (BuildContext context, int index) {
+                final item = discordLinks[index]; // Get each discord link item
+                return Container(
+                  height: 136,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE0E0E0)),
+                      borderRadius: BorderRadius.circular(8.0)),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            item['image'] != ''
+                                ? Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        fit: BoxFit.cover,
+                                        image: AssetImage(item['image']),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    item['name'],
+                                    style: const TextStyle(
+                                        fontWeight: FontWeight.bold),
+                                    maxLines: 2,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "المدرب: ${item['trainer']}",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey[700],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icons.bookmark_border_rounded,
+                                      Icons.share,
+                                    ].map((e) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Icon(e, size: 16),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
   }
 
   @override
@@ -80,30 +351,7 @@ class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
       ),
       child: Column(
         children: [
-          // Search Bar
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
-            child: TextField(
-              controller: searchController,
-              onChanged: _filterChannels,
-              decoration: InputDecoration(
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(
-                    color: second, // Set your desired bottom border color
-                    width: 1, // Adjust the thickness of the bottom border
-                  ),
-                ),
-                hintText: "ابحث عن قناة...",
-                prefixIcon: Icon(Icons.search),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                  borderSide:
-                      BorderSide.none, // No border for the OutlineInputBorder
-                ),
-              ),
-            ),
-          ),
-          // Display the channels in a grid
+          // Display the courses in a grid
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
             child: SizedBox(
@@ -117,48 +365,48 @@ class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
                   mainAxisSpacing: 20.0,
                   childAspectRatio: 1.8,
                 ),
-                itemCount: filteredChannels.length,
+                itemCount: coursesMoney.length,
                 itemBuilder: (context, index) {
-                  final channel = filteredChannels[index];
-                  return Tooltip(
-                    message: channel,
-                    child: GestureDetector(
-                      onTap: () async {
-                        final url = Uri.parse(discordLinks[channel]!);
-                        if (await canLaunchUrl(url)) {
-                          await launchUrl(url);
-                        } else {
-                          Get.snackbar(
-                            'Error',
-                            'Could not open the link: $url',
-                            snackPosition: SnackPosition.BOTTOM,
-                          );
-                        }
-                      },
-                      child: Card(
-                        color: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        elevation: 4,
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.link, size: 40, color: second),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                channel,
-                                textAlign: TextAlign.center,
-                                style: GoogleFonts.elMessiri(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
-                                  color: const Color.fromRGBO(69, 30, 156, 1),
-                                ),
+                  final course = coursesMoney[index];
+                  return GestureDetector(
+                    onTap: () => _showCourseDialog(),
+                    child: Card(
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                      elevation: 4,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: course['image'] != ''
+                                ? ClipRRect(
+                                    borderRadius: const BorderRadius.vertical(
+                                      top: Radius.circular(12.0),
+                                    ),
+                                    child: Image.asset(
+                                      course['image'],
+                                      fit: BoxFit.cover,
+                                      width: double.infinity,
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text(
+                              course['name']!,
+                              textAlign: TextAlign.center,
+                              style: GoogleFonts.elMessiri(
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: const Color.fromRGBO(69, 30, 156, 1),
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     ),
                   );
