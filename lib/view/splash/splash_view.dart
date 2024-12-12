@@ -739,7 +739,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                               ),
                               // Image Section (only for larger screens)
                               if (isLargeScreen)
-                                Expanded(
+                                const Expanded(
                                     child: Column(
                                   children: [
                                     SizedBox(

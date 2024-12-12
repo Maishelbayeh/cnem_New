@@ -4,137 +4,141 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-final List<Map<String, dynamic>> discordLinks = [
+final List<Map<String, dynamic>> discordLinksStores = [
   {
     'name': 'ecwid',
-    'image': '',
+    'image': 'assets/Ecwid.jpg',
     'link': Uri.parse("https://discord.gg/BrXVmC23f3"),
     'trainer': ''
   },
   {
     'name': 'wix',
-    'image': '',
+    'image': 'assets/wix.jpg',
     'link': Uri.parse("https://discord.gg/nUMFbC6cYs"),
     'trainer': ''
   },
   {
     'name': 'ووردبريس',
-    'image': '',
+    'image': 'assets/wordpress.jpg',
     'link': Uri.parse("https://discord.gg/hJwdZpf7WJ"),
     'trainer': ''
   },
-  //////////////////////////سوشال ميديا
+];
+final List<Map<String, dynamic>> discordLinksSocial = [
   {
     'name': 'تيلجرام',
-    'image': '',
+    'image': 'assets/telegram.jpg',
     'link': Uri.parse("https://discord.gg/fyqNfmfq4n"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'تيك توك',
-    'image': '',
+    'image': 'assets/tiktok.jpg',
     'link': Uri.parse("https://discord.gg/twEg6J5zUT"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'انستغرام',
-    'image': '',
+    'image': 'assets/instagram.jpg',
     'link': Uri.parse("https://discord.gg/w7vpzHerRg"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'فيس بوك',
-    'image': '',
+    'image': 'assets/facebook.jpg',
     'link': Uri.parse("https://discord.gg/VWcQySHxen"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'أدوات الاعمال',
-    'image': '',
+    'image': 'assets/Businesstools.jpg',
     'link': Uri.parse("https://discord.gg/nQ289ZjZnJ"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'مدير الإعلانات',
-    'image': '',
+    'image': 'assets/AdvManager.jpg',
     'link': Uri.parse("https://discord.gg/h5mv2GrEZf"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'يوتيوب',
-    'image': '',
+    'image': 'assets/youtube.jpg',
     'link': Uri.parse("https://discord.gg/fTcbCT7F6R"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'منصة x ',
-    'image': '',
+    'image': 'assets/Twitter.jpg',
     'link': Uri.parse("https://discord.gg/ZjNf4S86Kf"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'سوشلجي',
-    'image': '',
+    'image': 'assets/Suchalji.jpg',
     'link': Uri.parse("https://discord.gg/PwtXg6jYFh"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'سناب شات',
-    'image': '',
+    'image': 'assets/snapchat.jpg',
     'link': Uri.parse("https://discord.gg/Hwv2mqkxfE"),
     'trainer': 'ابراهيم احمد'
   },
-  ///////////////////////////////عمل حر
+];
+final List<Map<String, dynamic>> discordLinksFreelance = [
   {
     'name': 'مستقل',
-    'image': '',
+    'image': 'assets/mustaqilun.jpg',
     'link': Uri.parse("https://discord.gg/3uX6E5A7dC"),
     'trainer': 'ابراهيم احمد'
   },
   {
     'name': 'خمسات ',
-    'image': '',
+    'image': 'assets/khamsat.jpg',
     'link': Uri.parse("https://discord.gg/7GZewXPJf6"),
     'trainer': 'ابراهيم احمد'
   },
-  ///////////////////////////// تصميم
+];
+final List<Map<String, dynamic>> discordLinksdesign = [
   {
     'name': 'ثري دي ماكس',
-    'image': '',
+    'image': 'assets/3Dmaxs.jpg',
     'link': Uri.parse("https://discord.gg/7eCaS4CAtQ"),
     'trainer': 'ضحى احمد'
   },
   {
     'name': 'فوتوشوب',
-    'image': '',
+    'image': 'assets/Photoshop.jpg',
     'link': Uri.parse("https://discord.gg/Dfqk7uRAY9"),
     'trainer': 'جيهان كخن'
   },
   {
     'name': 'اوتوكاد',
-    'image': '',
+    'image': 'assets/AutoCAD.jpg',
     'link': Uri.parse("https://discord.gg/dmzJMJqGJz"),
     'trainer': 'ضحى احمد'
   },
   {
     'name': 'كانفا',
-    'image': '',
+    'image': 'assets/Canva.jpg',
     'link': Uri.parse("https://discord.gg/abyHDqFpQt"),
     'trainer': 'جيهان كخن'
   },
   {
     'name': 'كاب كات',
-    'image': '',
+    'image': 'assets/Capcut.jpg',
     'link': Uri.parse("https://discord.gg/2vAc7SjvBm"),
     'trainer': 'جيهان كخن'
   },
   {
     'name': 'المصمم العربي',
-    'image': '',
+    'image': 'assets/Arabdesigner.jpg',
     'link': Uri.parse("https://discord.gg/rAr4HkbDkB"),
     'trainer': '',
   },
-  ///////////////////////////// محافظ
+];
+final List<Map<String, dynamic>> discordLinksBank = [
   {
     'name': 'جوال',
     'image': '',
@@ -153,34 +157,35 @@ final List<Map<String, dynamic>> discordLinks = [
     'link': Uri.parse("https://discord.gg/NSwM2Xu7W5"),
     'trainer': '',
   },
-  /////////////////////////////// ربح عن طريق الانترنت
+];
+final List<Map<String, dynamic>> discordLinksonline = [
   {
     'name': 'بيع الصور',
-    'image': '',
+    'image': 'assets/Sellphotos.jpg',
     'link': Uri.parse("https://discord.gg/w46SeATN3n"),
     'trainer': '',
   },
   {
     'name': 'سماع الاغاني',
-    'image': '',
+    'image': 'assets/Listeningtosongs.jpg',
     'link': Uri.parse("https://discord.gg/6MdsV9vqh4"),
     'trainer': '',
   },
   {
     'name': 'مشاهدة الافلام',
-    'image': '',
+    'image': 'assets/watchingFilms.jpg',
     'link': Uri.parse("https://discord.gg/KShwPPj9kU"),
     'trainer': '',
   },
   {
     'name': 'العاب',
-    'image': '',
+    'image': 'assets/games.jpg',
     'link': Uri.parse("https://discord.gg/VdNg5M3fsH"),
     'trainer': '',
   },
   {
     'name': 'drop-shopping',
-    'image': '',
+    'image': 'assets/dropshopping.jpg',
     'link': Uri.parse("https://discord.gg/tyfKaMKZxm"),
     'trainer': '',
   },
@@ -189,15 +194,15 @@ final List<Map<String, dynamic>> discordLinks = [
 final List<Map<String, dynamic>> coursesMoney = [
   {
     'name': 'ادوات الذكاء الاصطناعي',
-    'image': 'assets/aitool.jpeg',
+    'image': 'assets/aitool.jpg',
   },
   {
     'name': 'إجابة الاستبيان',
-    'image': '',
+    'image': 'assets/questionnaire.jpg',
   },
   {
     'name': 'البودكاست',
-    'image': '',
+    'image': 'assets/Podcast.jpg',
   },
   {
     'name': 'المتاجر الالكتروني',
@@ -234,9 +239,7 @@ class ChannelSectionLarge extends StatefulWidget {
 
 class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
   double height = 600.0;
-
-  // Function to show a dialog with course information
-  void _showCourseDialog() {
+  void _showCourseDialogStores() {
     showDialog(
       context: context,
       builder: (context) {
@@ -244,16 +247,18 @@ class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
           child: Container(
             constraints: const BoxConstraints(maxWidth: 400),
             child: ListView.builder(
-              itemCount: discordLinks.length, // Use the length of discordLinks
+              itemCount:
+                  discordLinksStores.length, // Use the length of discordLinks
               itemBuilder: (BuildContext context, int index) {
-                final item = discordLinks[index]; // Get each discord link item
+                final item =
+                    discordLinksStores[index]; // Get each discord link item
                 return Container(
                   height: 136,
                   margin:
                       const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
                   decoration: BoxDecoration(
                       border: Border.all(color: const Color(0xFFE0E0E0)),
-                      borderRadius: BorderRadius.circular(8.0)),
+                      borderRadius: BorderRadius.circular(5)),
                   padding: const EdgeInsets.all(8),
                   child: Row(
                     children: [
@@ -269,7 +274,7 @@ class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
                                       color: Colors.grey,
                                       borderRadius: BorderRadius.circular(8.0),
                                       image: DecorationImage(
-                                        fit: BoxFit.cover,
+                                        fit: BoxFit.fill,
                                         image: AssetImage(item['image']),
                                       ),
                                     ),
@@ -281,17 +286,550 @@ class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    item['name'],
-                                    style: const TextStyle(
-                                        fontWeight: FontWeight.bold),
-                                    maxLines: 2,
-                                    overflow: TextOverflow.ellipsis,
+                                  InkWell(
+                                    onTap: () async {
+                                      launchUrl(item['link']);
+                                    },
+                                    child: Text(
+                                      item['name'],
+                                      style: GoogleFonts.elMessiri(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            69, 30, 156, 1),
+                                      ),
+                                    ),
                                   ),
                                   const SizedBox(height: 8),
                                   Text(
                                     "المدرب: ${item['trainer']}",
-                                    style: TextStyle(
+                                    style: GoogleFonts.elMessiri(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey[700],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icons.bookmark_border_rounded,
+                                      Icons.share,
+                                    ].map((e) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Icon(e, size: 16),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCourseDialogSocial() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView.builder(
+              itemCount:
+                  discordLinksSocial.length, // Use the length of discordLinks
+              itemBuilder: (BuildContext context, int index) {
+                final item =
+                    discordLinksSocial[index]; // Get each discord link item
+                return Container(
+                  height: 136,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE0E0E0)),
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            item['image'] != ''
+                                ? Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(item['image']),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      launchUrl(item['link']);
+                                    },
+                                    child: Text(
+                                      item['name'],
+                                      style: GoogleFonts.elMessiri(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            69, 30, 156, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "المدرب: ${item['trainer']}",
+                                    style: GoogleFonts.elMessiri(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey[700],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icons.bookmark_border_rounded,
+                                      Icons.share,
+                                    ].map((e) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Icon(e, size: 16),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCourseDialogFreelance() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView.builder(
+              itemCount: discordLinksFreelance
+                  .length, // Use the length of discordLinks
+              itemBuilder: (BuildContext context, int index) {
+                final item =
+                    discordLinksFreelance[index]; // Get each discord link item
+                return Container(
+                  height: 136,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE0E0E0)),
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            item['image'] != ''
+                                ? Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(item['image']),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      launchUrl(item['link']);
+                                    },
+                                    child: Text(
+                                      item['name'],
+                                      style: GoogleFonts.elMessiri(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            69, 30, 156, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "المدرب: ${item['trainer']}",
+                                    style: GoogleFonts.elMessiri(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey[700],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icons.bookmark_border_rounded,
+                                      Icons.share,
+                                    ].map((e) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Icon(e, size: 16),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCourseDialogBank() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView.builder(
+              itemCount: discordLinksFreelance
+                  .length, // Use the length of discordLinks
+              itemBuilder: (BuildContext context, int index) {
+                final item =
+                    discordLinksFreelance[index]; // Get each discord link item
+                return Container(
+                  height: 136,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE0E0E0)),
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            item['image'] != ''
+                                ? Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(item['image']),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      launchUrl(item['link']);
+                                    },
+                                    child: Text(
+                                      item['name'],
+                                      style: GoogleFonts.elMessiri(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            69, 30, 156, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "المدرب: ${item['trainer']}",
+                                    style: GoogleFonts.elMessiri(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey[700],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icons.bookmark_border_rounded,
+                                      Icons.share,
+                                    ].map((e) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Icon(e, size: 16),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCourseDialogonline() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView.builder(
+              itemCount: discordLinksFreelance
+                  .length, // Use the length of discordLinks
+              itemBuilder: (BuildContext context, int index) {
+                final item =
+                    discordLinksFreelance[index]; // Get each discord link item
+                return Container(
+                  height: 136,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE0E0E0)),
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            item['image'] != ''
+                                ? Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(item['image']),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      launchUrl(item['link']);
+                                    },
+                                    child: Text(
+                                      item['name'],
+                                      style: GoogleFonts.elMessiri(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            69, 30, 156, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "المدرب: ${item['trainer']}",
+                                    style: GoogleFonts.elMessiri(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.grey[700],
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Icons.bookmark_border_rounded,
+                                      Icons.share,
+                                    ].map((e) {
+                                      return InkWell(
+                                        onTap: () {},
+                                        child: Padding(
+                                          padding:
+                                              const EdgeInsets.only(right: 8.0),
+                                          child: Icon(e, size: 16),
+                                        ),
+                                      );
+                                    }).toList(),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  void _showCourseDialogdesign() {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return Dialog(
+          child: Container(
+            constraints: const BoxConstraints(maxWidth: 400),
+            child: ListView.builder(
+              itemCount: discordLinksFreelance
+                  .length, // Use the length of discordLinks
+              itemBuilder: (BuildContext context, int index) {
+                final item =
+                    discordLinksFreelance[index]; // Get each discord link item
+                return Container(
+                  height: 136,
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 8.0),
+                  decoration: BoxDecoration(
+                      border: Border.all(color: const Color(0xFFE0E0E0)),
+                      borderRadius: BorderRadius.circular(5)),
+                  padding: const EdgeInsets.all(8),
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            item['image'] != ''
+                                ? Container(
+                                    width: 100,
+                                    height: 100,
+                                    decoration: BoxDecoration(
+                                      color: Colors.grey,
+                                      borderRadius: BorderRadius.circular(8.0),
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(item['image']),
+                                      ),
+                                    ),
+                                  )
+                                : const Icon(Icons.link,
+                                    size: 40, color: Colors.blue),
+                            const SizedBox(width: 8),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  InkWell(
+                                    onTap: () async {
+                                      launchUrl(item['link']);
+                                    },
+                                    child: Text(
+                                      item['name'],
+                                      style: GoogleFonts.elMessiri(
+                                        fontSize: 18,
+                                        fontWeight: FontWeight.bold,
+                                        color: const Color.fromRGBO(
+                                            69, 30, 156, 1),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: 8),
+                                  Text(
+                                    "المدرب: ${item['trainer']}",
+                                    style: GoogleFonts.elMessiri(
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.grey[700],
                                     ),
@@ -369,7 +907,27 @@ class _ChannelSectionLargeState extends State<ChannelSectionLarge> {
                 itemBuilder: (context, index) {
                   final course = coursesMoney[index];
                   return GestureDetector(
-                    onTap: () => _showCourseDialog(),
+                    onTap: () {
+                      if (course['name'] == 'ادوات الذكاء الاصطناعي') {
+                        launchUrl(Uri.parse('https://discord.gg/2SqrNNA5eV'));
+                      } else if (course['name'] == 'إجابة الاستبيان') {
+                        launchUrl(Uri.parse('https://discord.gg/MmCuJZQkNc'));
+                      } else if (course['name'] == 'البودكاست') {
+                        launchUrl(Uri.parse('https://discord.gg/8mfVwPdFBY'));
+                      } else if (course['name'] == 'المتاجر الالكتروني') {
+                        _showCourseDialogStores();
+                      } else if (course['name'] == 'سوشال ميديا') {
+                        _showCourseDialogSocial();
+                      } else if (course['name'] == 'العمل الحر') {
+                        _showCourseDialogFreelance();
+                      } else if (course['name'] == 'محافظ البنكية') {
+                        _showCourseDialogBank();
+                      } else if (course['name'] == 'برامج التصميم') {
+                        _showCourseDialogdesign();
+                      } else if (course['name'] == 'الربح عن طريق الانترنت') {
+                        _showCourseDialogonline();
+                      }
+                    },
                     child: Card(
                       color: Colors.white,
                       shape: RoundedRectangleBorder(
