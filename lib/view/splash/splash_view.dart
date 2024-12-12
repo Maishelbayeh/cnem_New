@@ -613,9 +613,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 60,
-                    ),
+                    const SizedBox(height: 60),
                     SizedBox(
                       key: _loginSectionKey,
                       height: MediaQuery.of(context)
