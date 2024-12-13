@@ -1,10 +1,8 @@
 import 'package:cenem/Api/ConfirmPhone.dart';
 import 'package:cenem/Api/sendSms.dart';
 import 'package:cenem/controllers/auth_controller.dart';
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -149,7 +147,7 @@ void confirmDialog(BuildContext context, String? phone) {
                                   borderSide:
                                       BorderSide(color: Colors.grey[300]!),
                                 ),
-                                focusedBorder: OutlineInputBorder(
+                                focusedBorder: const OutlineInputBorder(
                                   borderSide: BorderSide(color: second),
                                 ),
                                 prefixIcon: const Icon(Icons.phone_android,

@@ -3,31 +3,23 @@ import 'package:cenem/Api/getchildren.dart';
 import 'package:cenem/Api/paymentApi.dart';
 import 'package:cenem/Api/reserpasscode.dart';
 import 'package:cenem/controllers/Membercontroller.dart';
-
 import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
-
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
-
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/intro/components/description_text.dart';
-import 'package:cenem/view/onbonding/authentication/componants/animationRive.dart';
 import 'package:cenem/view/onbonding/authentication/componants/customPosition.dart';
-
 import 'package:cenem/view/onbonding/authentication/componants/memberForm/Textfield.dart';
 import 'package:cenem/view/onbonding/authentication/componants/memberForm/custombirthdate.dart';
 import 'package:cenem/view/onbonding/authentication/componants/popdown.dart';
 import 'package:cenem/view/onbonding/authentication/componants/switchTile.dart';
-import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:cenem/view/onbonding/payment/payment.dart';
 import 'package:cenem/view/onbonding/payment/paymentError.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -104,7 +96,6 @@ class DialogContent extends StatelessWidget {
     );
   }
 
-  @override
   Widget _buildDialogContent(BuildContext context) {
     final backcontroller = Get.find<DialogNavigationController>();
     return Center(
@@ -395,7 +386,7 @@ class DialogContent extends StatelessWidget {
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.next,
                           hintText: 'اسم المستخدم على منصة ديسكورد',
-                          inputFormatters: [], // Add your input formatters here
+                          inputFormatters: const [], // Add your input formatters here
                         ),
                         // Error message if any
                         if (controller.memberIdError.value.isNotEmpty)
@@ -403,12 +394,11 @@ class DialogContent extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
                               controller.memberIdError.value,
-                              style: TextStyle(color: Colors.red),
+                              style: const TextStyle(color: Colors.red),
                             ),
                           ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, top: 20),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 25.0, top: 20),
                           child: InkWell(
                             onTap: _launchURL, // When clicked, it opens the URL
                             child: Text(
@@ -416,9 +406,7 @@ class DialogContent extends StatelessWidget {
                               style: TextStyle(
                                 color: second,
                                 fontSize: 20,
-                                fontWeight: FontWeight.bold, //
-                                // Replace 'second' with the correct color
-                                // Makes it look like a link
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
@@ -426,7 +414,6 @@ class DialogContent extends StatelessWidget {
                       ],
                     ),
                   ),
-                  // Right: InkWell for clickable link
                 ],
               ),
               const SizedBox(height: 20),
@@ -516,9 +503,11 @@ class DialogContent extends StatelessWidget {
                                   auth.isShowLoading.value = true;
 
                                   await fetchOffspringMembers(user.userId);
-                                  await Future.delayed(Duration(seconds: 1));
+                                  await Future.delayed(
+                                      const Duration(seconds: 1));
                                   fetchSubscription();
-                                  await Future.delayed(Duration(seconds: 1));
+                                  await Future.delayed(
+                                      const Duration(seconds: 1));
 
                                   Get.snackbar(
                                     'نجاح',

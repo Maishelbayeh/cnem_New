@@ -1,7 +1,4 @@
-import 'package:cenem/controllers/navigation_controller.dart';
-import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
-
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:get/get.dart';

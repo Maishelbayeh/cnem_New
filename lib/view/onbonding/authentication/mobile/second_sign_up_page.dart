@@ -1,15 +1,12 @@
 import 'package:cenem/Api/fetchmember.dart';
 import 'package:cenem/Api/paymentApi.dart';
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/view/intro/components/description_text.dart';
 import 'package:cenem/view/onbonding/authentication/componants/memberForm/custombirthdate.dart';
-import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:cenem/view/onbonding/payment/paymentError.dart';
 import 'package:cenem/view/onbonding/payment/payment.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -23,7 +20,9 @@ import 'package:url_launcher/url_launcher.dart';
 
 Future<void> _launchURL() async {
   const url = 'https://discord.gg/uMmsEKY7bN';
+  // ignore: deprecated_member_use
   if (await canLaunch(url)) {
+    // ignore: deprecated_member_use
     await launch(url);
   } else {
     throw 'Could not launch $url';
@@ -42,7 +41,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SecondSignUpPage(),
+      home: const SecondSignUpPage(),
     );
   }
 }
@@ -50,6 +49,8 @@ class MyApp extends StatelessWidget {
 final SecondSignFormController controller = Get.put(SecondSignFormController());
 
 class SecondSignUpPage extends StatelessWidget {
+  const SecondSignUpPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -404,7 +405,7 @@ class SecondSignUpPage extends StatelessWidget {
                           keyboardType: TextInputType.text,
                           textInputAction: TextInputAction.next,
                           hintText: 'اسم المستخدم على منصة ديسكورد',
-                          inputFormatters: [], // Add your input formatters here
+                          inputFormatters: const [], // Add your input formatters here
                         ),
                         // Error message if any
                         if (controller.memberIdError.value.isNotEmpty)
@@ -412,12 +413,11 @@ class SecondSignUpPage extends StatelessWidget {
                             padding: const EdgeInsets.only(top: 8.0),
                             child: Text(
                               controller.memberIdError.value,
-                              style: TextStyle(color: Colors.red),
+                              style: const TextStyle(color: Colors.red),
                             ),
                           ),
-
-                        Padding(
-                          padding: const EdgeInsets.only(left: 25.0, top: 20),
+                        const Padding(
+                          padding: EdgeInsets.only(left: 25.0, top: 20),
                           child: InkWell(
                             onTap: _launchURL, // When clicked, it opens the URL
                             child: Text(
@@ -498,8 +498,8 @@ class SecondSignUpPage extends StatelessWidget {
                           ),
                       ]),
                     ),
-                    Text(
-                        "استخدامك لرمز شخص في الشبكة يمنحك خصمًا على الاشتراك الشهري لتدفع\$\25 بدلاً من \$\30."),
+                    const Text(
+                        "استخدامك لرمز شخص في الشبكة يمنحك خصمًا على الاشتراك الشهري لتدفع\$25 بدلاً من \$30."),
                   ],
                 );
               }),
@@ -525,9 +525,11 @@ class SecondSignUpPage extends StatelessWidget {
                                   auth.isShowLoading.value = true;
 
                                   await fetchOffspringMembers(user.userId);
-                                  await Future.delayed(Duration(seconds: 1));
+                                  await Future.delayed(
+                                      const Duration(seconds: 1));
                                   fetchSubscription();
-                                  await Future.delayed(Duration(seconds: 1));
+                                  await Future.delayed(
+                                      const Duration(seconds: 1));
 
                                   Get.snackbar(
                                     'نجاح',
@@ -539,14 +541,17 @@ class SecondSignUpPage extends StatelessWidget {
                                 if (sub?.currentPaymentNow != 1.0) {
                                   auth.isShowLoading.value = false;
                                   showDialog(
+                                    // ignore: use_build_context_synchronously
                                     context: context,
                                     builder: (context) {
                                       return ProfessionalDialog(
                                         onConfirm: () {
+                                          // ignore: avoid_print
                                           print("تم تأكيد الدفع");
                                           Navigator.of(context).pop();
                                         },
                                         onCancel: () {
+                                          // ignore: avoid_print
                                           print("تم إلغاء الدفع");
                                           Navigator.of(context).pop();
                                         },
@@ -554,6 +559,7 @@ class SecondSignUpPage extends StatelessWidget {
                                     },
                                   );
                                 } else {
+                                  // ignore: use_build_context_synchronously
                                   Navigator.of(context).pop();
                                 }
                                 auth.isShowLoading.value = false;
@@ -571,6 +577,7 @@ class SecondSignUpPage extends StatelessWidget {
                       if (auth.isShowLoading.value)
                         Container(
                           color: second
+                              // ignore: deprecated_member_use
                               .withOpacity(0.5), // Semi-transparent background
                           child: const Center(
                             child: CircularProgressIndicator(

@@ -2,7 +2,6 @@
 import 'package:cenem/main.dart';
 import 'package:cenem/model/paymentModel.dart';
 import 'package:cenem/res/variables.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 

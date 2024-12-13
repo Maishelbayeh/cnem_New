@@ -1,9 +1,6 @@
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/user/widgets/custom_text.dart';
 import 'package:cenem/view/custom%20componant/gradiantText.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:cenem/view/custom%20componant/subtitle_text.dart';
 import '../../../view model/responsive.dart';
 
 class CombinetitleText extends StatelessWidget {
@@ -47,23 +44,23 @@ class CombinetitleText extends StatelessWidget {
             desktop: TextWithGradient(
               start: 20,
               end: 24,
-                text: 'الشبكة التعاونية للتسويق الالكتروني ',
-                ),
-            largeMobile:  TextWithGradient(
+              text: 'الشبكة التعاونية للتسويق الالكتروني ',
+            ),
+            largeMobile: TextWithGradient(
               start: 14,
               end: 16,
-                text: 'الشبكة التعاونية للتسويق الالكتروني ',
-                ),
-            mobile:  TextWithGradient(
+              text: 'الشبكة التعاونية للتسويق الالكتروني ',
+            ),
+            mobile: TextWithGradient(
               start: 14,
               end: 16,
-                text: 'الشبكة التعاونية للتسويق الالكتروني ',
-                ),
-            tablet:  TextWithGradient(
+              text: 'الشبكة التعاونية للتسويق الالكتروني ',
+            ),
+            tablet: TextWithGradient(
               start: 20,
               end: 22,
-                text: 'الشبكة التعاونية للتسويق الالكتروني ',
-                ),
+              text: 'الشبكة التعاونية للتسويق الالكتروني ',
+            ),
           ),
         )
       ],

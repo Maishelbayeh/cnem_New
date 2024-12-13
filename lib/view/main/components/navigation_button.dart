@@ -1,4 +1,3 @@
-import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
 
 class NavigationTextButton extends StatelessWidget {
@@ -8,12 +7,12 @@ class NavigationTextButton extends StatelessWidget {
   final Color? color;
 
   const NavigationTextButton({
-    Key? key,
+    super.key,
     required this.onTap,
     required this.text,
     this.size,
     this.color,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

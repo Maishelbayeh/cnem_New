@@ -3,12 +3,9 @@ import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
-import 'package:cenem/user/helpers/reponsiveness.dart';
 import 'package:cenem/user/pages/PaymentMoveTable.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/custom%20componant/customtext.dart';
-import 'package:cenem/view/custom%20componant/popupMember.dart';
-import 'package:cenem/view/main/components/navigation_button.dart';
 import 'package:cenem/view/mobile_member/pages/informations.dart';
 import 'package:cenem/view/mobile_member/pages/settings.dart';
 import 'package:flutter/cupertino.dart';
@@ -131,7 +128,7 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                 text: mem.memberName,
                 size: constraints.maxWidth > 800 ? 18 : 14,
               ),
-              Spacer(),
+              const Spacer(),
               Container(
                 width: constraints.maxWidth > 800 ? 2 : 1,
                 color: second,
@@ -160,6 +157,7 @@ Widget buildTooltipButton(
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
+          // ignore: deprecated_member_use
           color: second.withOpacity(.4),
           borderRadius: BorderRadius.circular(30),
         ),

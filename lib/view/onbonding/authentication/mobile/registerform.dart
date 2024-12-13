@@ -1,10 +1,7 @@
 import 'package:cenem/main.dart';
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/res/variables.dart';
-import 'package:cenem/view/onbonding/authentication/componants/checkpass.dart';
 import 'package:cenem/controllers/signupController.dart';
 import 'package:cenem/view/onbonding/authentication/mobile/register_page.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -13,17 +10,17 @@ import 'package:intl_phone_field/phone_number.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:cenem/view/onbonding/authentication/componants/customTextField.dart';
 import 'package:cenem/controllers/auth_controller.dart';
-
 import 'package:cenem/view/custom%20componant/custom_button.dart';
-
-import 'package:cenem/view/onbonding/authentication/componants/animationRive.dart';
 import 'package:cenem/view/onbonding/authentication/componants/customPosition.dart';
 
+// ignore: must_be_immutable
 class SignUpFormMobile extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
   final SignUpFormController signUpFormController =
       Get.put(SignUpFormController());
   PhoneNumber? phoneNumber;
+
+  SignUpFormMobile({super.key});
   @override
   Widget build(BuildContext context) {
     return Obx(

@@ -1,7 +1,6 @@
 import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 final Map<String, String> revenue = {
   "ارباح هذا الشهر": "0",
@@ -30,17 +29,18 @@ class _mobilerevState extends State<mobilerev> {
         boxShadow: [
           BoxShadow(
             offset: const Offset(0, 6),
+            // ignore: deprecated_member_use
             color: Colors.grey.withOpacity(.1),
             blurRadius: 12,
           ),
         ],
         border: Border.all(color: Colors.grey, width: .5),
       ),
-      child: Column(
+      child: const Column(
         children: [
           // Displaying the revenue information cards
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
+            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 16),
             child: Wrap(
               spacing: 16.0, // Space between items in the row
               runSpacing: 16.0, // Space between rows
@@ -76,7 +76,7 @@ class RevenueInfo extends StatelessWidget {
   final String title;
   final String amount;
 
-  RevenueInfo({required this.title, required this.amount});
+  const RevenueInfo({super.key, required this.title, required this.amount});
 
   @override
   Widget build(BuildContext context) {
@@ -87,9 +87,10 @@ class RevenueInfo extends StatelessWidget {
         borderRadius: BorderRadius.circular(12), // Rounded corners
         boxShadow: [
           BoxShadow(
+            // ignore: deprecated_member_use
             color: Colors.grey.withOpacity(0.2),
             blurRadius: 4,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -99,17 +100,17 @@ class RevenueInfo extends StatelessWidget {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 12,
               fontWeight: FontWeight.bold,
               color: Colors.white, // Title text color
             ),
             textAlign: TextAlign.center,
           ),
-          SizedBox(height: 4),
+          const SizedBox(height: 4),
           Text(
             amount,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.bold,
               color: Colors.white, // Amount text color

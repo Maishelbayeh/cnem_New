@@ -1,9 +1,5 @@
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/view/custom%20componant/custom_button.dart';
-
 import 'package:cenem/view/intro/components/description_text.dart';
-import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/view/onbonding/authentication/mobile/SignInButtonmobile.dart';
 import 'package:cenem/view/onbonding/authentication/mobile/register_page.dart';
 import 'package:cenem/view/onbonding/authentication/web/sign_in_form.dart';
@@ -15,6 +11,7 @@ class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignInPageState createState() => _SignInPageState();
 }
 
@@ -23,7 +20,6 @@ class _SignInPageState extends State<SignInPage> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    double paddingBetweenItems = screenHeight * 0.05;
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),

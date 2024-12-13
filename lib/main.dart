@@ -2,9 +2,7 @@ import 'package:cenem/Api/reserpasscode.dart';
 import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/controllers/saveController.dart';
 import 'package:cenem/controllers/sendemail_controller.dart';
-
 import 'package:cenem/res/variables.dart';
-
 import 'package:cenem/controllers/Membercontroller.dart';
 import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/controllers/bankcontroller.dart';
@@ -18,13 +16,10 @@ import 'package:cenem/services/seveChildren.dart';
 import 'package:cenem/services/usersave.dart';
 import 'package:cenem/view/BasicApp.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:cenem/Api/config.dart';
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
-import 'package:http/http.dart' as http;
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_storage/get_storage.dart';
 
 final ChildrenService childrenService = ChildrenService();
@@ -73,8 +68,5 @@ Future<void> main() async {
   await initializeSubscription();
 
   html.querySelector('#email')?.text = user.email;
-  runApp(MyApp());
+  runApp(const MyApp());
 }
-
-/// Load .env file from a remote URL
-

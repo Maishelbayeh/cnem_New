@@ -8,13 +8,13 @@ import 'package:cenem/model/childrenModel.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/controllers/Signin_controller.dart';
 import 'package:cenem/controllers/auth_controller.dart';
-import 'package:cenem/view/mobile_member/pages/dashboard.dart';
 import 'package:cenem/view/onbonding/authentication/componants/SignInbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 final PasswordResetApiService _apiService = PasswordResetApiService();
 
+// ignore: must_be_immutable
 class SignInButtonMobile extends StatelessWidget {
   final controller = Get.find<DialogNavigationController>();
   final sauthController = Get.find<SignInController>();

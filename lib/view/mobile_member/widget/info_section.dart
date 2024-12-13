@@ -1,6 +1,5 @@
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/view/mobile_member/components/info_sec.dart';
-import 'package:cenem/view/mobile_member/pages/informations.dart';
 import 'package:flutter/material.dart';
 
 class InfoSection extends StatelessWidget {
@@ -9,7 +8,7 @@ class InfoSection extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext convalue) {
+  Widget build(BuildContext context) {
     return Padding(
       padding:
           const EdgeInsets.all(50.0), // Add padding of 16 around the column

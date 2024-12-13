@@ -1,11 +1,8 @@
 import 'package:cenem/Api/UserSignUpApi.dart';
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/res/constants.dart';
 
 import 'package:cenem/view/intro/components/description_text.dart';
 import 'package:cenem/view/onbonding/authentication/mobile/registerform.dart';
-import 'package:cenem/view/onbonding/authentication/web/signUpForm.dart';
-import 'package:cenem/view/onbonding/authentication/web/sign_in_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,6 +12,7 @@ class RegisterForm extends StatefulWidget {
   const RegisterForm({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterFormState createState() => _RegisterFormState();
 }
 

@@ -146,10 +146,7 @@ import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/controllers/signupController.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/user/pages/users/split.dart';
-
 import 'package:cenem/view/onbonding/authentication/componants/memberForm/custombirthdate.dart';
-
-import 'package:cenem/view/mobile_member/components/form_fields.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -181,14 +178,11 @@ class _InfoSettings extends State<InfoSettings> {
     controller.middleNameController.text = name[1];
     controller.lastNameController.text = name[2];
     controller.firstNameEController.text = nameE[0];
-
     controller.lastNameEController.text = nameE[1];
-    ;
     controller.memberIdController.text = mem.Id.toString();
     authController.emailController.text = user.email;
     authController.phoneController.text = user.phone;
     controller.dateEditingController.text = mem.birthday.toString();
-    // TODO: implement initState
     super.initState();
   }
 
@@ -346,7 +340,7 @@ class _InfoSettings extends State<InfoSettings> {
                 ),
               ],
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Row(
               children: [
                 Expanded(
@@ -401,7 +395,7 @@ class _InfoSettings extends State<InfoSettings> {
                 ),
               ],
             ),
-            SizedBox(height: 15),
+            const SizedBox(height: 15),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -421,7 +415,7 @@ class _InfoSettings extends State<InfoSettings> {
                       ),
                       Obx(() => Text(
                             signUpFormController.phoneError.value,
-                            style: TextStyle(color: Colors.red),
+                            style: const TextStyle(color: Colors.red),
                           )),
                     ],
                   ),
@@ -445,7 +439,7 @@ class _InfoSettings extends State<InfoSettings> {
                       ),
                       Obx(() => Text(
                             signUpFormController.phoneError.value,
-                            style: TextStyle(color: Colors.red),
+                            style: const TextStyle(color: Colors.red),
                           )),
                     ],
                   ),
@@ -472,7 +466,7 @@ class _InfoSettings extends State<InfoSettings> {
                   ),
                   Obx(() => Text(
                         signUpFormController.emailError.value,
-                        style: TextStyle(color: Colors.red),
+                        style: const TextStyle(color: Colors.red),
                       )),
                 ],
               ),

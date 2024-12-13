@@ -443,57 +443,53 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                       height: MediaQuery.of(context).size.height,
                       child: Scaffold(
                         backgroundColor: Colors.white,
-                        body: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: Center(
-                            child: Row(
-                              children: [
-                                if (isLargeScreen)
-                                  Expanded(
-                                      child: Center(
-                                    child: Image.asset(
-                                      'assets/arabworld.png',
-                                      width: screenWidth * 0.5,
-                                      height: screenHeight * 0.5,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  )),
+                        body: Center(
+                          child: Row(
+                            children: [
+                              if (isLargeScreen)
                                 Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(40.0),
-                                    child: Column(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.center,
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        const SizedBox(
-                                          height: 100,
+                                    child: Center(
+                                  child: Image.asset(
+                                    'assets/arabworld.png',
+                                    width: screenWidth * 0.5,
+                                    height: screenHeight * 0.5,
+                                    fit: BoxFit.cover,
+                                  ),
+                                )),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(40.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 100,
+                                      ),
+                                      Text(
+                                        "تسجيل الدخول",
+                                        style: GoogleFonts.elMessiri(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color.fromRGBO(
+                                              69, 30, 156, 1),
                                         ),
-                                        Text(
-                                          "تسجيل الدخول",
-                                          style: GoogleFonts.elMessiri(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color.fromRGBO(
-                                                69, 30, 156, 1),
-                                          ),
-                                          textAlign: TextAlign.center,
-                                        ),
-                                        const SizedBox(height: 20),
-                                        SignInForm(screenWidth, screenHeight),
-                                        const SizedBox(height: 20),
-                                        SizedBox(
-                                          width: double.infinity,
-                                          child: SignInButtonWeb(
-                                              screenHeight, screenWidth),
-                                        ),
-                                      ],
-                                    ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(height: 20),
+                                      SignInForm(screenWidth, screenHeight),
+                                      const SizedBox(height: 20),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: SignInButtonWeb(
+                                            screenHeight, screenWidth),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -559,47 +555,41 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                       key: _tochannelsSectionKey,
                       height: MediaQuery.of(context).size.height,
                       child: Container(
-                        color: Colors.white, // لون الخلفية
-                        child: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: MediaQuery.of(context)
-                                                .size
-                                                .width >
-                                            600
-                                        ? 100.0 // بادينغ كبير للشاشات الواسعة
-                                        : 20.0, // بادينغ أصغر للشاشات الصغيرة
-                                    vertical: 20.0,
-                                  ),
-                                  child: GridView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: crossAxisCount,
-                                      crossAxisSpacing: 25.0,
-                                      mainAxisSpacing: 40.0,
-                                      childAspectRatio: 1.8,
-                                    ),
-                                    itemCount: courses.length,
-                                    itemBuilder: (context, index) {
-                                      final course = courses[index];
-                                      return GestureDetector(
-                                        onTap: () {
-                                          launchUrl(course['link']);
-                                        },
-                                        child: CourseCard(course: course),
-                                      );
-                                    },
-                                  ),
+                        color: Colors.white,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width > 600
+                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
+                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  vertical: 20.0,
                                 ),
-                              ],
-                            ),
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 25.0,
+                                    mainAxisSpacing: 40.0,
+                                    childAspectRatio: 1.8,
+                                  ),
+                                  itemCount: courses.length,
+                                  itemBuilder: (context, index) {
+                                    final course = courses[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        launchUrl(course['link']);
+                                      },
+                                      child: CourseCard(course: course),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -608,64 +598,58 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                       key: _topaidchannelsSectionKey,
                       height: MediaQuery.of(context).size.height,
                       child: Container(
-                        color: Colors.white, // لون الخلفية
-                        child: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: MediaQuery.of(context)
-                                                .size
-                                                .width >
-                                            600
-                                        ? 100.0 // بادينغ كبير للشاشات الواسعة
-                                        : 20.0, // بادينغ أصغر للشاشات الصغيرة
-                                    vertical: 20.0,
+                        color: Colors.white,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width > 600
+                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
+                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  vertical: 20.0,
+                                ),
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 25.0,
+                                    mainAxisSpacing: 40.0,
+                                    childAspectRatio: 1.8,
                                   ),
-                                  child: GridView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: crossAxisCount,
-                                      crossAxisSpacing: 25.0,
-                                      mainAxisSpacing: 40.0,
-                                      childAspectRatio: 1.8,
-                                    ),
-                                    itemCount: coursesMoney.length,
-                                    itemBuilder: (context, index) {
-                                      final course = coursesMoney[index];
-                                      return GestureDetector(
-                                        onTap: () {
-                                          showDialog(
-                                            context: context,
-                                            barrierDismissible: false,
-                                            builder: (context) {
-                                              return ProfessionalErrorDialog(
-                                                title: 'تسجيل في الشبكة',
-                                                content:
-                                                    'قم بتسجيل في الشبكة للتمتلك الفرصة للاطلاع على تفاصيل هذه القنوات',
-                                                buttonText: 'تسجيل الدخول',
-                                                onPressed: () {
-                                                  _currentIndex = 1;
-                                                  _scrollToSection(
-                                                      _loginSectionKey);
-                                                  Navigator.of(context).pop();
-                                                },
-                                              );
-                                            },
-                                          );
-                                        },
-                                        child: CourseCard(course: course),
-                                      );
-                                    },
-                                  ),
-                                )
-                              ],
-                            ),
+                                  itemCount: coursesMoney.length,
+                                  itemBuilder: (context, index) {
+                                    final course = coursesMoney[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          barrierDismissible: false,
+                                          builder: (context) {
+                                            return ProfessionalErrorDialog(
+                                              title: 'تسجيل في الشبكة',
+                                              content:
+                                                  'قم بتسجيل في الشبكة للتمتلك الفرصة للاطلاع على تفاصيل هذه القنوات',
+                                              buttonText: 'تسجيل الدخول',
+                                              onPressed: () {
+                                                _currentIndex = 1;
+                                                _scrollToSection(
+                                                    _loginSectionKey);
+                                                Navigator.of(context).pop();
+                                              },
+                                            );
+                                          },
+                                        );
+                                      },
+                                      child: CourseCard(course: course),
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
                           ),
                         ),
                       ),
@@ -675,48 +659,42 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                       height: MediaQuery.of(context).size.height,
                       child: Scaffold(
                         backgroundColor: Colors.white,
-                        body: Directionality(
-                          textDirection: TextDirection.rtl,
-                          child: SingleChildScrollView(
-                            child: Column(
-                              children: [
-                                Padding(
-                                  padding: EdgeInsets.symmetric(
-                                    horizontal: MediaQuery.of(context)
-                                                .size
-                                                .width >
-                                            600
-                                        ? 100.0 // بادينغ كبير للشاشات الواسعة
-                                        : 20.0, // بادينغ أصغر للشاشات الصغيرة
-                                    vertical: 20.0,
-                                  ),
-                                  child: GridView.builder(
-                                    shrinkWrap: true,
-                                    physics:
-                                        const NeverScrollableScrollPhysics(),
-                                    gridDelegate:
-                                        SliverGridDelegateWithFixedCrossAxisCount(
-                                      crossAxisCount: crossAxisCount,
-                                      crossAxisSpacing: 25.0,
-                                      mainAxisSpacing: 40.0,
-                                      childAspectRatio: 1.8,
-                                    ),
-                                    itemCount: teamMembers.length,
-                                    itemBuilder: (context, index) {
-                                      return GestureDetector(
-                                        onTap: () {
-                                          showMemberDialog(
-                                              context, teamMembers[index]);
-                                        },
-                                        child: MemberCard(
-                                          teamMember: teamMembers[index],
-                                        ),
-                                      );
-                                    },
-                                  ),
+                        body: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width > 600
+                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
+                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  vertical: 20.0,
                                 ),
-                              ],
-                            ),
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 25.0,
+                                    mainAxisSpacing: 40.0,
+                                    childAspectRatio: 1.8,
+                                  ),
+                                  itemCount: teamMembers.length,
+                                  itemBuilder: (context, index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        showMemberDialog(
+                                            context, teamMembers[index]);
+                                      },
+                                      child: MemberCard(
+                                        teamMember: teamMembers[index],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),

@@ -117,7 +117,7 @@ class _ConfirmEmailDialogState extends State<ConfirmEmailDialog> {
               const SizedBox(height: 20),
               Obx(() => Text(
                     'الرمز المدخل: ${_confirmEmailController.otpCode.value}',
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: first,
                       fontSize: 15,
                       fontFamily: "Lateef",

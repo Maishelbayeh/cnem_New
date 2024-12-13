@@ -1,8 +1,6 @@
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/user/pages/users/settings.dart';
 import 'package:cenem/view/mobile_member/components/glassmorphism.dart';
-import 'package:cenem/view/mobile_member/pages/dashboard.dart';
-import 'package:cenem/view/mobile_member/widget/info_settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +8,7 @@ class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SettingsPageState createState() => _SettingsPageState();
 }
 
@@ -20,7 +19,7 @@ class _SettingsPageState extends State<SettingsPage> {
     double width = MediaQuery.of(context).size.width;
     return CupertinoPageScaffold(
       child: Material(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: MediaQuery.of(context).size.height,
           child: Stack(
@@ -147,7 +146,7 @@ class _SettingsPageState extends State<SettingsPage> {
                       topRight: Radius.circular(70),
                     ),
                   ),
-                  child: settings(),
+                  child: const settings(),
                 ),
               ),
             ],
