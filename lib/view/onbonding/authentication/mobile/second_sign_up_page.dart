@@ -538,6 +538,12 @@ class SecondSignUpPage extends StatelessWidget {
                                 }
                                 if (sub?.currentPaymentNow != 1.0) {
                                   auth.isShowLoading.value = false;
+                                  Get.snackbar(
+                                    'نجاح',
+                                    'تم التسجيل بنجاح',
+                                    snackPosition: SnackPosition.TOP,
+                                  );
+                                  Get.toNamed("/Home");
                                   showDialog(
                                     context: context,
                                     builder: (context) {
@@ -554,7 +560,12 @@ class SecondSignUpPage extends StatelessWidget {
                                     },
                                   );
                                 } else {
-                                  Navigator.of(context).pop();
+                                  Get.snackbar(
+                                    'نجاح',
+                                    'تم التسجيل بنجاح',
+                                    snackPosition: SnackPosition.TOP,
+                                  );
+                                  Get.toNamed("/Home");
                                 }
                                 auth.isShowLoading.value = false;
                                 controller.clearForm();

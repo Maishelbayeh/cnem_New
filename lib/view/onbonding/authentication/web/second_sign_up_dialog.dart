@@ -528,6 +528,12 @@ class DialogContent extends StatelessWidget {
                                   Get.toNamed("/Home");
                                 }
                                 if (sub?.currentPaymentNow != 1.0) {
+                                  Get.snackbar(
+                                    'نجاح',
+                                    'تم التسجيل بنجاح',
+                                    snackPosition: SnackPosition.TOP,
+                                  );
+                                  Get.toNamed("/Home");
                                   auth.isShowLoading.value = false;
                                   showDialog(
                                     context: context,
@@ -545,7 +551,12 @@ class DialogContent extends StatelessWidget {
                                     },
                                   );
                                 } else {
-                                  Navigator.of(context).pop();
+                                  Get.snackbar(
+                                    'نجاح',
+                                    'تم التسجيل بنجاح',
+                                    snackPosition: SnackPosition.TOP,
+                                  );
+                                  Get.toNamed("/Home");
                                 }
                                 auth.isShowLoading.value = false;
                                 controller.clearForm();
