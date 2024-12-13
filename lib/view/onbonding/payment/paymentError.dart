@@ -1,15 +1,7 @@
-import 'package:cenem/Api/fetchmember.dart';
-import 'package:cenem/Api/paymentApi.dart';
 import 'package:cenem/controllers/Membercontroller.dart';
-import 'package:cenem/controllers/navigation_controller.dart';
-import 'package:cenem/main.dart';
-import 'package:cenem/res/variables.dart';
-
-import 'package:cenem/view/onbonding/customdialog.dart';
-import 'package:cenem/view/onbonding/errordialog.dart';
-import 'package:cenem/view/onbonding/payment/payment.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+// ignore: unnecessary_import
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 

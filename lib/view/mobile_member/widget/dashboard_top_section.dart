@@ -1,8 +1,6 @@
-import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/view/mobile_member/components/nav_bar.dart';
 import 'package:cenem/view/mobile_member/components/top_card.dart';
-import 'package:cenem/view/mobile_member/pages/settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +25,7 @@ class DashboardTopSection extends StatelessWidget {
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.only(
+              padding: const EdgeInsets.only(
                 // top: 15.0,
                 right: 10.0,
                 // left: 10.0,
@@ -41,7 +39,7 @@ class DashboardTopSection extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(top: 30.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,

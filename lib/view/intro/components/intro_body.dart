@@ -2,7 +2,6 @@ import 'package:cenem/view/intro/components/headline.dart';
 import 'package:flutter/material.dart';
 import '../../../res/constants.dart';
 import '../../../view model/responsive.dart';
-import 'combine_subtitle.dart';
 import 'description_text.dart';
 
 class IntroBody extends StatelessWidget {
@@ -10,8 +9,6 @@ class IntroBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
-    String s = 'استثمر وقتك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
-
     return Row(
       children: [
         Column(

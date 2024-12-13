@@ -1,7 +1,6 @@
 import 'package:bottom_picker/bottom_picker.dart';
 import 'package:bottom_picker/resources/arrays.dart';
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/view/onbonding/authentication/mobile/second_sign_up_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

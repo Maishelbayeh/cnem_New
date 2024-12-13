@@ -1,4 +1,3 @@
-import 'package:cenem/main.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/user/widgets/header_info.dart';

@@ -14,6 +14,7 @@ class SecondSignFormController extends GetxController {
 // Widget function to build gender and nationality row
 Widget buildGenderAndNationalityRow(BuildContext context) {
   // Access the controller using Get.find
+  // ignore: unused_local_variable
   final controller = Get.find<SecondSignFormController>();
 
   double screenWidth = MediaQuery.of(context).size.width;

@@ -11,13 +11,10 @@ import 'package:cenem/model/childrenModel.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/controllers/Signin_controller.dart';
 import 'package:cenem/controllers/auth_controller.dart';
-import 'package:cenem/user/layout.dart';
-import 'package:cenem/user/pages/users/settings.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/onbonding/authentication/componants/SignInbutton.dart';
 import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:cenem/view/onbonding/payment/payment.dart';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -25,6 +22,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 final PasswordResetApiService _apiService = PasswordResetApiService();
 
+// ignore: must_be_immutable
 class SignInButtonWeb extends StatelessWidget {
   double height;
   double width;

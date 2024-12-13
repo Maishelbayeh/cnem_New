@@ -7,12 +7,15 @@ import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: must_be_immutable
 class SignupWebButton extends StatelessWidget {
   final AuthController authController = Get.find();
   final SignUpFormController signUpFormController = Get.find();
 // ignore: non_constant_identifier_names
-  late DialogNavigationController DialogController = Get.find<
-      DialogNavigationController>(); // Assuming you have a BackController
+  late DialogNavigationController DialogController =
+      Get.find<DialogNavigationController>();
+
+  SignupWebButton({super.key}); // Assuming you have a BackController
 
   @override
   Widget build(BuildContext context) {

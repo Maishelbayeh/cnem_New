@@ -1,7 +1,5 @@
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/controllers/signupController.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
@@ -9,15 +7,15 @@ import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:cenem/view/onbonding/authentication/componants/customTextField.dart';
 import 'package:cenem/controllers/auth_controller.dart';
-
 import 'package:cenem/view/onbonding/authentication/componants/customPosition.dart';
 
 class SignUpForm extends StatefulWidget {
   final double width;
   final double height;
 
-  SignUpForm(this.width, this.height, {Key? key}) : super(key: key);
+  SignUpForm(this.width, this.height, {super.key});
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpForm createState() => _SignUpForm();
   final AuthController authController = Get.put(AuthController());
   final SignUpFormController signUpFormController =
@@ -76,14 +74,14 @@ class _SignUpForm extends State<SignUpForm> {
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         enabledBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: first),
+                          borderSide: const BorderSide(color: first),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: second),
+                          borderSide: const BorderSide(color: second),
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        prefixIcon: Icon(Icons.phone_android),
+                        prefixIcon: const Icon(Icons.phone_android),
                       ),
                       initialCountryCode: 'PS',
                       onChanged: (phone) {

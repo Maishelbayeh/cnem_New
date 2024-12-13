@@ -1,7 +1,6 @@
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/user/pages/overview/widgets/info_card.dart';
-import 'package:cenem/view/custom%20componant/error.dart';
 import 'package:flutter/material.dart';
 
 class OverviewCardsLargeScreen extends StatelessWidget {

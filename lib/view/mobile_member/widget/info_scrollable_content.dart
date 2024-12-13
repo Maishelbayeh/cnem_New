@@ -1,11 +1,7 @@
 import 'package:cenem/res/variables.dart';
-import 'package:cenem/user/widgets/about.dart';
 import 'package:cenem/user/widgets/the_tree.dart';
 import 'package:cenem/view/mobile_member/widget/info_section.dart';
-
 import 'package:flutter/material.dart';
-
-import '../../../main.dart';
 
 class InfoScrollableContent extends StatelessWidget {
   const InfoScrollableContent({

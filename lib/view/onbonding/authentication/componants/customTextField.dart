@@ -1,6 +1,5 @@
 import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextField extends StatefulWidget {
   final TextEditingController controller;
@@ -13,7 +12,7 @@ class CustomTextField extends StatefulWidget {
   final List<String>? autofillHints; // New parameter for autofill hints
 
   const CustomTextField({
-    Key? key,
+    super.key,
     required this.controller,
     required this.hintText,
     this.obscureText = false,
@@ -22,9 +21,10 @@ class CustomTextField extends StatefulWidget {
     required this.keyboardType,
     this.suffixIcon,
     this.autofillHints, // Optional autofill hints
-  }) : super(key: key);
+  });
 
   @override
+  // ignore: library_private_types_in_public_api
   _CustomTextFieldState createState() => _CustomTextFieldState();
 }
 

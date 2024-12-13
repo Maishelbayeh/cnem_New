@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cenem/view/intro/components/social_media_coloumn.dart';
 import '../../../res/constants.dart';
 
 class SocialMediaIconList extends StatelessWidget {

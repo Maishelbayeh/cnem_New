@@ -4,8 +4,6 @@ import 'package:cenem/user/widgets/top_nav.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/mobile_member/pages/dashboard.dart';
-import 'package:cenem/view/splash/componenets/footer.dart';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 

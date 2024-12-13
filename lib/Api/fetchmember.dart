@@ -1,10 +1,7 @@
 import 'dart:convert';
-
 import 'package:cenem/model/member_model.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/services/saveMember.dart';
-import 'package:cenem/main.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
 

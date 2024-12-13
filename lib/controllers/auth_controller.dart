@@ -6,14 +6,11 @@ import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
 import 'package:cenem/model/userModel.dart';
 import 'package:cenem/controllers/Signin_controller.dart';
-import 'package:cenem/res/constants.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:cenem/view/onbonding/errordialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:intl_phone_field/intl_phone_field.dart';
 
 class AuthController extends GetxController {
   final TextEditingController emailController = TextEditingController();

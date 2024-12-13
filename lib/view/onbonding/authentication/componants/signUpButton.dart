@@ -1,15 +1,14 @@
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+// ignore: camel_case_types
 class onSignInTap extends StatelessWidget {
   final AuthController authController = Get.put(AuthController());
   final double width;
   final double height;
-  onSignInTap({Key? key, required this.height, required this.width})
-      : super(key: key);
+  onSignInTap({super.key, required this.height, required this.width});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

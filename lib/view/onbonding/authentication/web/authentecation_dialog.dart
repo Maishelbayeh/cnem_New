@@ -1,12 +1,7 @@
 import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/custom%20componant/gradiantText.dart';
-import 'package:cenem/view/custom%20componant/subtitle_text.dart';
-
-import 'package:cenem/view/onbonding/authentication/componants/onCreateAcountTap.dart';
-import 'package:cenem/view/onbonding/authentication/componants/signUpButton.dart';
 import 'package:cenem/view/onbonding/authentication/web/SignInButtonWeb.dart';
 import 'package:cenem/view/onbonding/authentication/web/signupWebButton.dart';
 import 'package:cenem/view/onbonding/authentication/web/signUpForm.dart';

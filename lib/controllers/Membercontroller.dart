@@ -1,16 +1,12 @@
 import 'dart:convert';
-
 import 'package:cenem/Api/membersignUp.dart';
 import 'package:cenem/main.dart';
 import 'package:cenem/model/member_model.dart';
 import 'package:cenem/res/variables.dart';
 import 'package:cenem/view/onbonding/errordialog.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart' as http;
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:intl/intl.dart';
 
 class SecondSignFormController extends GetxController {

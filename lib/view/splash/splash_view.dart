@@ -3,9 +3,8 @@ import 'package:cenem/view/onbonding/authentication/web/signUpForm.dart';
 import 'package:cenem/view/onbonding/authentication/web/sign_in_form.dart';
 import 'package:cenem/view/onbonding/authentication/web/signupWebButton.dart';
 import 'package:cenem/view/onbonding/errordialog.dart';
-
+import 'package:cenem/view/splash/componenets/CourseCard.dart';
 import 'package:cenem/view/splash/componenets/TeamMember.dart';
-
 import 'package:cenem/view/splash/componenets/footer.dart';
 import 'package:cenem/view/splash/componenets/video.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +12,7 @@ import 'package:url_launcher/url_launcher.dart';
 // ignore: depend_on_referenced_packages
 import 'package:video_player/video_player.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cenem/view/onbonding/MemberDialog.dart';
 
 void main() {
   runApp(const MaterialApp(
@@ -23,7 +23,6 @@ void main() {
 
 class BackgroundVideoApp extends StatefulWidget {
   const BackgroundVideoApp({super.key});
-
   @override
   // ignore: library_private_types_in_public_api
   _BackgroundVideoAppState createState() => _BackgroundVideoAppState();
@@ -31,16 +30,13 @@ class BackgroundVideoApp extends StatefulWidget {
 
 class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
   late VideoPlayerController _controller1;
-  late VideoPlayerController _controller2;
   late int _currentIndex = 0;
   ScrollController _scrollController = ScrollController();
   final GlobalKey _loginSectionKey = GlobalKey();
   final GlobalKey _newsubscriberSectionKey = GlobalKey();
   final GlobalKey _tochannelsSectionKey = GlobalKey();
   final GlobalKey _whoareweSectionKey = GlobalKey();
-  final GlobalKey _networkIdeaSectionKey = GlobalKey();
-  final GlobalKey _callUsSectionKey = GlobalKey();
-  bool rememberMe = false;
+  final GlobalKey _topaidchannelsSectionKey = GlobalKey();
   final List<String> _menuItems = [
     'تسجيل الدخول',
     'مشترك جديد',
@@ -84,7 +80,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
   final List<Map<String, dynamic>> coursesMoney = [
     {
       'name': '  ادوات الذكاء الاصطناعي',
-      'image': 'assets/aitool.jpeg',
+      'image': 'assets/aitool.jpg',
       'link': Uri.parse(
           'https://discord.com/channels/1293901250257096714/1293912696797921280'),
     },
@@ -126,121 +122,30 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
     },
   ];
 
-  final List<TeamMember> teamMembers = [
-    TeamMember(
-        name: 'طلال عقاد',
-        description:
-            'صاحب الفكرة ومالك التسجيلات لدى وزارة الاقتصاد وخبرة اكثر من 20 عام في التجارة والتنمية البشرية وتطوير الذات.',
-        imageUrl: 'assets/talal.jpg',
-        position: "مدير الشبكة"),
-    TeamMember(
-        name: 'صادق شخشير',
-        description:
-            'بكالوريوس علوم حاسوب- جامعة النجاح الوطنية خبرة اكثر من ٢٠ عاما في تطوير الانظمة المحوسبة',
-        imageUrl: 'assets/sadeq.jpg',
-        position: "مسؤول قسم ال IT"),
-    TeamMember(
-        name: 'ا.فادي الشخشير',
-        description: 'خبره 20عاما في اداره المشاريع والعقود ومحاضر جامعي',
-        imageUrl: 'assets/fadi.jpg',
-        position: "مدير قسم العلاقات العامة "),
-    TeamMember(
-        name: "  د.ا منار حلمي عدوي",
-        description:
-            " شهادة الماجستير في قانون العمل الفلسطيني من جامعة النجاح الوطنية و شهادة  الدكتوراة في القانون الخاص في مجال عقود التجارة الإلكترونية من جامعة سوسة في تونس وحاصلة على  اجازة المحاماة الفلسطينية ولدي خبرة في مجال العمل ما يقارب ١٩ سنة ",
-        imageUrl: 'assets/user.png',
-        position: "المستشارة القانونية للشبكة"),
-    TeamMember(
-        name: 'أنصار صبحي عبد الكريم',
-        description:
-            'بكالوريوس الإذاعة والتلفزيون ، صحفية لدى الشبكة التعاونية للتسويق الالكتروني.',
-        imageUrl: 'assets/anssar.jpg',
-        position: "صحفية ومسؤولة اعلانات في الشبكة"),
-    TeamMember(
-        name: " مي حسام شلباية",
-        description: " بكالوريوس هندسة حاسوب، من جامعة النجاح الوطنية",
-        imageUrl: 'assets/mai.png',
-        position: "FrontEnd  developer"),
-    TeamMember(
-        name: " أ.ابراهيم احمد ",
-        description:
-            "  خريج بكالوريوس إدارة أعمال واقتصاد من جامعة القدس المفتوحة، بخبرة تزيد عن 8 سنوات في إدارة المشاريع الرقمية والتسويق الإلكتروني. حاصل على شهادات متخصصة من جوجل ومؤسسات محلية وأجنبية. مؤسس موقع *سوجلشي* لخدمات السوشيال ميديا وأكاديمية PS سابقًا. متخصص في إدارة الحملات الإعلانية عبر ميتا وتطوير أدوات منصات التواصل مثل تيك توك وإنستجرام. خبير في العمل الحر عبر منصات مثل مستقل وخمسات، ومتمكن من استخدام التطبيقات والمحافظ الرقمية لتلبية احتياجات العملاء بفعالية.",
-        imageUrl: 'assets/ibrahim.png',
-        position:
-            "إدارة وتطوير أدوات الأعمال المختلفة الخاصة بجميع منصات التواصل الاجتماعي"),
-
-    TeamMember(
-        name: " م.ضحى احمد ",
-        description: "بكالوريوس هندسة معماري",
-        imageUrl: 'assets/user.png',
-        position:
-            "تقديم دورات هندسية في جامعة خضوري+دورات هندسية اونلاين في  البرامج المعمارية والديكور."),
-    TeamMember(
-        name: " مريم كردي ",
-        description: " بكالوريوس نظم معلومات ادارية ",
-        imageUrl: 'assets/user.png',
-        position:
-            "مسؤولة منصة ديسكورد و مدربة في قنوات الشبكة التعاونية للتسويق الالكتروني"),
-    TeamMember(
-        name: "  نور ابراهيم قويدر ",
-        description: " بكالوريوس ادارة اعمال  ",
-        imageUrl: 'assets/user.png',
-        position: "ادارية لدى الشبكة التعاونية للتسويق  الالكتروني ."),
-
-    TeamMember(
-        name: " جيهان حازم فارس كخن ",
-        description:
-            " ماجستير في التسويق الرقمي والذكاء الاصطناعي، دبلوم عالي في اللغة الألمانية فرعي عبري، ودبلوم في تصميم الجرافيك والمونتاج. ",
-        imageUrl: 'assets/user.png',
-        position: "مدربة"),
-    // TeamMember(
-    //     name: "  ",
-    //     description: "  ",
-    //     imageUrl: 'assets/images/mai.png',
-    //     position: "")
-  ];
-
-  final _phoneController = TextEditingController();
-  String _selectedCountryCode = '+1'; // Default country code
-
-  final List<Map<String, String>> countryCodes = [
-    {'code': '+1', 'flag': '🇺🇸'}, // Example: USA
-    {'code': '+44', 'flag': '🇬🇧'}, // Example: UK
-    {'code': '+971', 'flag': '🇦🇪'}, // Example: UAE
-    {'code': '+91', 'flag': '🇮🇳'}, // Example: India
-    // Add more country codes and flags here
-  ];
-
-  bool _isVideoReady = false;
   @override
   void initState() {
     super.initState();
     _scrollController = ScrollController()
       ..addListener(() {
         if (_scrollController.offset <= 0) {
-          // إذا كان في أعلى الصفحة
           setState(() {
             _currentIndex = 0;
           });
         } else {
-          // إذا كان في مكان آخر
           setState(() {
             _currentIndex = 1; // يمكن أن تعدل القيم بناءً على مواقع أخرى
           });
         }
       });
-
-    // Initialize the video player with asset path (ensure you have the correct path)
     _controller1 = VideoPlayerController.asset('assets/background.mp4')
       ..initialize().then((_) {
-        // Set the video to loop and mute it for autoplay to work in browsers
         setState(() {
           _controller1.setLooping(true);
           _controller1.setVolume(0); // Mute the video
           _controller1.play(); // Start playing the video
-          _isVideoReady = true; // Flag to indicate video is ready
         });
       }).catchError((error) {
+        // ignore: avoid_print
         print("Error loading video: $error");
       });
   }
@@ -253,96 +158,24 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
     super.dispose();
   }
 
-  void _scrollToLoginSection() {
-    final context = _loginSectionKey.currentContext;
+  void _scrollToSection(GlobalKey sectionKey) {
+    final context = sectionKey.currentContext;
     if (context != null) {
       Scrollable.ensureVisible(
         context,
-        alignment:
-            0.0, // Scroll to align the top of the section with the top of the viewport
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
+        alignment: 0.0,
+        duration: const Duration(milliseconds: 500), // مدة التمرير
+        curve: Curves.easeInOut, // منحنى الحركة
       );
     }
-  }
-
-  void _scrollToNewSubscriberSection() {
-    final context = _newsubscriberSectionKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        alignment:
-            0.0, // Scroll to align the top of the section with the top of the viewport
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void _scrollToChannelsSection() {
-    final context = _tochannelsSectionKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        alignment:
-            0.0, // Scroll to align the top of the section with the top of the viewport
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void _scrollToWhoareweSection() {
-    final context = _whoareweSectionKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        alignment:
-            0.0, // Scroll to align the top of the section with the top of the viewport
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void _scrollToNetworkIdeaSection() {
-    final context = _networkIdeaSectionKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        alignment:
-            0.0, // Scroll to align the top of the section with the top of the viewport
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void _scrollToCallUsSection() {
-    final context = _callUsSectionKey.currentContext;
-    if (context != null) {
-      Scrollable.ensureVisible(
-        context,
-        alignment:
-            0.0, // Scroll to align the top of the section with the top of the viewport
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeInOut,
-      );
-    }
-  }
-
-  void _scrollToTop() {
-    _scrollController.animateTo(
-      0.0, // الانتقال إلى أعلى الصفحة
-      duration: const Duration(milliseconds: 500), // مدة الحركة
-      curve: Curves.easeInOut, // منحنى الحركة
-    );
   }
 
   void launchURL() async {
     const url =
         'https://www.youtube.com/watch?v=ONBzrKkW1yY'; // Replace with your desired URL
+    // ignore: deprecated_member_use
     if (await canLaunch(url)) {
+      // ignore: deprecated_member_use
       await launch(url,
           forceSafariVC: false,
           forceWebView: false); // Opens in the default browser
@@ -360,14 +193,8 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
         : screenWidth > 600
             ? 2
             : 1;
-    final crossAxisCountAbout = screenWidth > 800
-        ? 4
-        : screenWidth > 600
-            ? 2
-            : 2;
     return LayoutBuilder(
       builder: (context, constraints) {
-        bool _isHovered = false;
         bool isLargeScreen = constraints.maxWidth > 800;
         return Scaffold(
           extendBodyBehindAppBar: true,
@@ -383,7 +210,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                     builder: (context) {
                       return const Text("");
                     },
-                  ) // No leading icon on large screens
+                  )
                 : Builder(
                     builder: (context) {
                       return IconButton(
@@ -412,25 +239,28 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                           children: [
                             ..._menuItems.map((item) {
                               return Padding(
-                                padding: EdgeInsets.only(left: 10, right: 10),
+                                padding:
+                                    const EdgeInsets.only(left: 10, right: 10),
                                 child: TextButton(
                                   onPressed: () {
                                     setState(() {
                                       if (item == 'تسجيل الدخول') {
                                         _currentIndex = 1;
-                                        _scrollToLoginSection();
+                                        _scrollToSection(_loginSectionKey);
                                       } else if (item == 'مشترك جديد') {
                                         _currentIndex = 2;
-                                        _scrollToNewSubscriberSection();
+                                        _scrollToSection(
+                                            _newsubscriberSectionKey);
                                       } else if (item == 'القنوات التدريبية') {
                                         _currentIndex = 3;
-                                        _scrollToChannelsSection();
+                                        _scrollToSection(_tochannelsSectionKey);
                                       } else if (item == "القنوات المدفوعه") {
                                         _currentIndex = 4;
-                                        _scrollToNetworkIdeaSection();
+                                        _scrollToSection(
+                                            _topaidchannelsSectionKey);
                                       } else if (item == 'من نحن') {
                                         _currentIndex = 5;
-                                        _scrollToWhoareweSection();
+                                        _scrollToSection(_whoareweSectionKey);
                                       } else if (item == 'فكرة الشبكة') {
                                         _currentIndex = 6;
                                         launchURL();
@@ -454,16 +284,10 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 50),
-                      child: GestureDetector(
-                        onTap: () {
-                          _currentIndex = 0;
-                          _scrollToTop();
-                        },
-                        child: Image.asset(
-                          'assets/bank.jpg', // مسار الشعار
-                          height: 100, // ضبط ارتفاع الشعار حسب الحاجة
-                          fit: BoxFit.contain,
-                        ),
+                      child: Image.asset(
+                        'assets/bank.jpg', // مسار الشعار
+                        height: 100, // ضبط ارتفاع الشعار حسب الحاجة
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ]
@@ -478,25 +302,36 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                     color: Color.fromRGBO(69, 30, 156, 1),
                   ),
                   child: Text(
-                    'القائمة الرئيسية',
+                    'Cenm',
                     style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
                 ),
                 ..._menuItems.map((item) {
                   return ListTile(
-                      title: Text(item),
-                      onTap: item == 'تسجيل الدخول'
-                          ? _scrollToLoginSection // Scroll to login section
-                          : item == 'مشترك جديد'
-                              ? _scrollToNewSubscriberSection
-                              : item == 'القنوات التدريبية'
-                                  ? _scrollToChannelsSection
-                                  : item == 'من نحن'
-                                      ? _scrollToWhoareweSection
-                                      : item == 'فكرة الشبكة'
-                                          ? _scrollToNetworkIdeaSection
-                                          // ignore: avoid_print
-                                          : () => print(""));
+                    title: Text(item),
+                    onTap: () {
+                      if (item == 'تسجيل الدخول') {
+                        _currentIndex = 1;
+                        _scrollToSection(_loginSectionKey);
+                      } else if (item == 'مشترك جديد') {
+                        _currentIndex = 2;
+                        _scrollToSection(_newsubscriberSectionKey);
+                      } else if (item == 'القنوات التدريبية') {
+                        _currentIndex = 3;
+                        _scrollToSection(_tochannelsSectionKey);
+                      } else if (item == "القنوات المدفوعه") {
+                        _currentIndex = 4;
+                        _scrollToSection(_topaidchannelsSectionKey);
+                      } else if (item == 'من نحن') {
+                        _currentIndex = 5;
+                        _scrollToSection(_whoareweSectionKey);
+                      } else if (item == 'فكرة الشبكة') {
+                        _currentIndex = 6;
+                        launchURL();
+                      }
+                      Navigator.pop(context);
+                    },
+                  );
                 }),
               ],
             ),
@@ -513,11 +348,9 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                           child: Stack(
                             fit: StackFit.expand,
                             children: [
-                              // The background color with opacity
                               Container(
                                 color: Colors.black, // Adjust opacity as needed
                               ),
-                              // The video player with opacity
                               Opacity(
                                 opacity: .7, // Full opacity for the video
                                 child: VideoPlayer(_controller1),
@@ -536,17 +369,14 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                       height: MediaQuery.of(context).size.height,
                       child: Center(
                         child: Column(
-                          mainAxisAlignment:
-                              MainAxisAlignment.center, // لضمان التوسيط العمودي
-                          crossAxisAlignment:
-                              CrossAxisAlignment.center, // لضمان التوسيط الأفقي
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Text(
                               'الشبكة التعاونية للتسويق الالكتروني \n',
                               style: GoogleFonts.lalezar(
                                 color: const Color.fromRGBO(69, 30, 156, 1),
                                 fontSize: 35,
-                                // fontWeight: FontWeight.bold,
                               ),
                             ),
                             Text(
@@ -568,18 +398,16 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                               style: GoogleFonts.lalezar(
                                 color: Colors.white,
                                 fontSize: 24,
-                                // fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(
-                                height: 25), // مسافة بين النصوص والزر
+                            const SizedBox(height: 25),
                             ElevatedButton(
                               onPressed: () {
                                 launchURL();
                               },
                               style: ElevatedButton.styleFrom(
-                                backgroundColor: const Color.fromRGBO(
-                                    69, 30, 156, 1), // لون الزر
+                                backgroundColor:
+                                    const Color.fromRGBO(69, 30, 156, 1),
                                 padding: const EdgeInsets.symmetric(
                                     horizontal: 30, vertical: 15),
                                 shape: RoundedRectangleBorder(
@@ -587,18 +415,14 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                                 ),
                               ),
                               child: Row(
-                                mainAxisSize:
-                                    MainAxisSize.min, // لتجنب تمدد الزر
+                                mainAxisSize: MainAxisSize.min,
                                 children: [
                                   const Icon(
-                                    Icons
-                                        .play_circle_fill, // أيقونة تشغيل الفيديو
+                                    Icons.play_circle_fill,
                                     color: Colors.white,
-                                    size: 24, // حجم الأيقونة
+                                    size: 24,
                                   ),
-                                  const SizedBox(
-                                      width:
-                                          10), // مسافة صغيرة بين الأيقونة والنص
+                                  const SizedBox(width: 10),
                                   Text(
                                     'تشغيل الفيديو',
                                     style: GoogleFonts.lalezar(
@@ -613,84 +437,63 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                         ),
                       ),
                     ),
-                    SizedBox(
-                      height: 60,
-                    ),
+                    const SizedBox(height: 60),
                     SizedBox(
                       key: _loginSectionKey,
-                      height: MediaQuery.of(context)
-                          .size
-                          .height, // Full screen height
+                      height: MediaQuery.of(context).size.height,
                       child: Scaffold(
                         backgroundColor: Colors.white,
-                        body: Directionality(
-                          textDirection: TextDirection
-                              .rtl, // Right to Left for Arabic text
-                          child: Center(
-                            child: Row(
-                              children: [
-                                // Only show the image if the screen width is large enough (e.g., greater than 600px)
-                                if (isLargeScreen)
-                                  Expanded(
-                                      child: Center(
-                                    child: Image.asset(
-                                      'assets/arabworld.png', // Path to your image file
-                                      width: screenWidth *
-                                          0.5, // Optional: Specify width
-                                      height: screenHeight *
-                                          0.5, // Optional: Specify height
-                                      fit: BoxFit
-                                          .cover, // Optional: Adjust how the image fits
-                                    ),
-                                  )),
-                                // Login Form
+                        body: Center(
+                          child: Row(
+                            children: [
+                              if (isLargeScreen)
                                 Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(40.0),
-                                    child: Column(
-                                      mainAxisAlignment: MainAxisAlignment
-                                          .center, // Center vertically
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        SizedBox(
-                                          height: 100,
+                                    child: Center(
+                                  child: Image.asset(
+                                    'assets/arabworld.png',
+                                    width: screenWidth * 0.5,
+                                    height: screenHeight * 0.5,
+                                    fit: BoxFit.cover,
+                                  ),
+                                )),
+                              Expanded(
+                                child: Padding(
+                                  padding: const EdgeInsets.all(40.0),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      const SizedBox(
+                                        height: 100,
+                                      ),
+                                      Text(
+                                        "تسجيل الدخول",
+                                        style: GoogleFonts.elMessiri(
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold,
+                                          color: const Color.fromRGBO(
+                                              69, 30, 156, 1),
                                         ),
-                                        // Title centered
-                                        Text(
-                                          "تسجيل الدخول",
-                                          style: GoogleFonts.elMessiri(
-                                            fontSize: 24,
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color.fromRGBO(
-                                                69, 30, 156, 1),
-                                          ),
-                                          textAlign: TextAlign
-                                              .center, // Title aligned in center
-                                        ),
-                                        const SizedBox(height: 20),
-                                        // Email input field
-                                        SignInForm(screenWidth, screenHeight),
-
-                                        // Password input field
-                                        const SizedBox(height: 20),
-                                        // Login button
-                                        SizedBox(
-                                          width: double.infinity,
-                                          child: SignInButtonWeb(
-                                              screenHeight, screenWidth),
-                                        ),
-                                      ],
-                                    ),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                      const SizedBox(height: 20),
+                                      SignInForm(screenWidth, screenHeight),
+                                      const SizedBox(height: 20),
+                                      SizedBox(
+                                        width: double.infinity,
+                                        child: SignInButtonWeb(
+                                            screenHeight, screenWidth),
+                                      ),
+                                    ],
                                   ),
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-
                     SizedBox(
                       key: _newsubscriberSectionKey,
                       height: MediaQuery.of(context).size.height,
@@ -708,7 +511,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      SizedBox(
+                                      const SizedBox(
                                         height: 150,
                                       ),
                                       Text(
@@ -722,36 +525,24 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                                         textAlign: TextAlign.center,
                                       ),
                                       const SizedBox(height: 20),
-                                      // Email Input Field
                                       SignUpForm(screenWidth, screenHeight),
-                                      // Password Input Field
                                       SignupWebButton(),
-                                      // Confirm Password Input Field
-
-                                      // Phone Number with Country Code
-
-                                      // Dropdown for Country Code
-
-                                      // Confirm Button
                                     ],
                                   ),
                                 ),
                               ),
-                              // Image Section (only for larger screens)
                               if (isLargeScreen)
-                                Expanded(
+                                const Expanded(
                                     child: Column(
                                   children: [
                                     SizedBox(
                                       height: 100,
                                     ),
                                     AutoPlayVideoContainer(
-                                      videoPath:
-                                          'assets/signIn.mp4', // Path to your video
+                                      videoPath: 'assets/signIn.mp4',
                                       height: 700, // Custom height
                                       width: 700, // Custom width
-                                      fit: BoxFit
-                                          .cover, // Adjust how the video fits the container
+                                      fit: BoxFit.cover,
                                     ),
                                   ],
                                 )),
@@ -760,272 +551,163 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                         ),
                       ),
                     ),
-
                     SizedBox(
-                        key: _tochannelsSectionKey,
-                        height: MediaQuery.of(context)
-                            .size
-                            .height, // Full screen height
-                        child: Scaffold(
-                          backgroundColor: Colors.white,
-                          body: Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 10, vertical: 10),
-                            child: GridView.builder(
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount:
-                                    crossAxisCount, // عدد الأعمدة الديناميكي
-                                crossAxisSpacing: 25.0, // المسافة الأفقية
-                                mainAxisSpacing: 40.0, // المسافة العمودية
-                                childAspectRatio: 1.8, // نسبة العرض إلى الطول
-                              ),
-                              itemCount: courses.length,
-                              itemBuilder: (context, index) {
-                                final course = courses[index];
-                                return GestureDetector(
-                                  onTap: () {
-                                    launchUrl(course['link']);
-                                  },
-                                  child: Card(
-                                    color: Colors.white,
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(12),
-                                    ),
-                                    elevation: 4,
-                                    child: Column(
-                                      children: [
-                                        // صورة الدورة
-                                        Expanded(
-                                          child: ClipRRect(
-                                            borderRadius:
-                                                const BorderRadius.vertical(
-                                              top: Radius.circular(12.0),
-                                            ),
-                                            child: Image.asset(
-                                              course['image']!,
-                                              fit: BoxFit.cover,
-                                              width: double.infinity,
-                                            ),
-                                          ),
-                                        ),
-                                        // اسم الدورة
-                                        Padding(
-                                          padding: const EdgeInsets.all(8.0),
-                                          child: Text(
-                                            course['name']!,
-                                            textAlign: TextAlign.center,
-                                            style: GoogleFonts.elMessiri(
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.bold,
-                                              color: const Color.fromRGBO(
-                                                  69, 30, 156, 1),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                );
-                              },
-                            ),
-                          ),
-                        )),
-                    SizedBox(
-                      key: _networkIdeaSectionKey,
+                      key: _tochannelsSectionKey,
                       height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context)
-                          .size
-                          .width, // Full screen height
-                      child: Scaffold(
-                        backgroundColor: Colors.white,
-                        body: Padding(
-                          padding: const EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 10),
-                          child: GridView.builder(
-                            gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount:
-                                  crossAxisCount, // Dynamic column count
-                              crossAxisSpacing: 25.0, // Horizontal spacing
-                              mainAxisSpacing: 40.0, // Vertical spacing
-                              childAspectRatio: 1.8, // Aspect ratio
-                            ),
-                            itemCount: coursesMoney
-                                .length, // Use the correct list for count
-                            itemBuilder: (context, index) {
-                              final course = coursesMoney[index];
-                              return GestureDetector(
-                                onTap: () {
-                                  // Trigger dialog
-                                  showDialog(
-                                    context: context,
-                                    barrierDismissible:
-                                        false, // Prevent closing by tapping outside
-                                    builder: (context) {
-                                      return ProfessionalErrorDialog(
-                                        title: 'تسجيل في الشبكة',
-                                        content:
-                                            'قم بتسجيل في الشبكة للتمتلك الفرصة للاطلاع على تفاصيل هذه القنوات',
-                                        buttonText: 'تسجيل الدخول',
-                                        onPressed: () {
-                                          _currentIndex = 1;
-                                          _scrollToLoginSection();
-                                          Navigator.of(context)
-                                              .pop(); // Close the dialog
-                                        },
-                                      );
-                                    },
-                                  );
-                                },
-                                child: Card(
-                                  color: Colors.white,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(12),
-                                  ),
-                                  elevation: 4,
-                                  child: Column(
-                                    children: [
-                                      // Video container wrapped in GestureDetector to intercept taps
-                                      Expanded(
-                                        child: ClipRRect(
-                                          borderRadius:
-                                              const BorderRadius.vertical(
-                                            top: Radius.circular(12.0),
-                                          ),
-                                          child: Image.asset(
-                                            course['image']!,
-                                            fit: BoxFit.cover,
-                                            width: double.infinity,
-                                          ),
-                                        ),
-                                      ),
-                                      // Course name
-                                      Padding(
-                                        padding: const EdgeInsets.all(8.0),
-                                        child: Text(
-                                          course['name']!,
-                                          textAlign: TextAlign.center,
-                                          style: GoogleFonts.elMessiri(
-                                            fontSize: 18,
-                                            fontWeight: FontWeight.bold,
-                                            color: const Color.fromRGBO(
-                                                69, 30, 156, 1),
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
+                      child: Container(
+                        color: Colors.white,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width > 600
+                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
+                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  vertical: 20.0,
                                 ),
-                              );
-                            },
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 25.0,
+                                    mainAxisSpacing: 40.0,
+                                    childAspectRatio: 1.8,
+                                  ),
+                                  itemCount: courses.length,
+                                  itemBuilder: (context, index) {
+                                    final course = courses[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        launchUrl(course['link']);
+                                      },
+                                      child: CourseCard(course: course),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
                     ),
-
                     SizedBox(
-                        key: _whoareweSectionKey,
-                        height: MediaQuery.of(context).size.height,
-                        width: MediaQuery.of(context)
-                            .size
-                            .width, // Full screen height
-                        child: Scaffold(
-                          backgroundColor: Colors.white,
-                          body: Directionality(
-                            textDirection: TextDirection.rtl,
-                            child: Padding(
-                              padding: const EdgeInsets.all(16),
-                              child: isLargeScreen
-                                  ? SingleChildScrollView(
-                                      child: Center(
-                                        child: SizedBox(
-                                          width:
-                                              MediaQuery.of(context).size.width,
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.center,
-                                            children: [
-                                              for (int i = 0;
-                                                  i < teamMembers.length;
-                                                  i += 3)
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.only(
-                                                          bottom: 30),
-                                                  child: Row(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    children: [
-                                                      for (int j = i;
-                                                          j < i + 3 &&
-                                                              j <
-                                                                  teamMembers
-                                                                      .length;
-                                                          j++)
-                                                        Padding(
-                                                          padding:
-                                                              const EdgeInsets
-                                                                  .symmetric(
-                                                                  horizontal:
-                                                                      10),
-                                                          child:
-                                                              GestureDetector(
-                                                            onTap: () {
-                                                              _showMemberDialog(
-                                                                  context,
-                                                                  teamMembers[
-                                                                      j]);
-                                                            },
-                                                            child: MemberCard(
-                                                              teamMember:
-                                                                  teamMembers[
-                                                                      j],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                    ],
-                                                  ),
-                                                ),
-                                            ],
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                  : ListView.builder(
-                                      itemCount: teamMembers.length,
-                                      itemBuilder: (context, index) {
-                                        return Padding(
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 10),
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              _showMemberDialog(
-                                                  context, teamMembers[index]);
-                                            },
-                                            child: MemberCard(
-                                              teamMember: teamMembers[index],
-                                            ),
-                                          ),
+                      key: _topaidchannelsSectionKey,
+                      height: MediaQuery.of(context).size.height,
+                      child: Container(
+                        color: Colors.white,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width > 600
+                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
+                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  vertical: 20.0,
+                                ),
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 25.0,
+                                    mainAxisSpacing: 40.0,
+                                    childAspectRatio: 1.8,
+                                  ),
+                                  itemCount: coursesMoney.length,
+                                  itemBuilder: (context, index) {
+                                    final course = coursesMoney[index];
+                                    return GestureDetector(
+                                      onTap: () {
+                                        showDialog(
+                                          context: context,
+                                          barrierDismissible: false,
+                                          builder: (context) {
+                                            return ProfessionalErrorDialog(
+                                              title: 'تسجيل في الشبكة',
+                                              content:
+                                                  'قم بتسجيل في الشبكة للتمتلك الفرصة للاطلاع على تفاصيل هذه القنوات',
+                                              buttonText: 'تسجيل الدخول',
+                                              onPressed: () {
+                                                _currentIndex = 1;
+                                                _scrollToSection(
+                                                    _loginSectionKey);
+                                                Navigator.of(context).pop();
+                                              },
+                                            );
+                                          },
                                         );
                                       },
-                                    ),
-                            ),
+                                      child: CourseCard(course: course),
+                                    );
+                                  },
+                                ),
+                              )
+                            ],
                           ),
-                        )),
-
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      key: _whoareweSectionKey,
+                      height: MediaQuery.of(context).size.height,
+                      child: Scaffold(
+                        backgroundColor: Colors.white,
+                        body: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal:
+                                      MediaQuery.of(context).size.width > 600
+                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
+                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  vertical: 20.0,
+                                ),
+                                child: GridView.builder(
+                                  shrinkWrap: true,
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  gridDelegate:
+                                      SliverGridDelegateWithFixedCrossAxisCount(
+                                    crossAxisCount: crossAxisCount,
+                                    crossAxisSpacing: 25.0,
+                                    mainAxisSpacing: 40.0,
+                                    childAspectRatio: 1.8,
+                                  ),
+                                  itemCount: teamMembers.length,
+                                  itemBuilder: (context, index) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        showMemberDialog(
+                                            context, teamMembers[index]);
+                                      },
+                                      child: MemberCard(
+                                        teamMember: teamMembers[index],
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
                     Container(
-                      height:
-                          100, // Height of the container with background color
-                      color: Colors.white, // Background color
+                      height: 100,
+                      color: Colors.white,
                       child: SizedBox(
-                        width:
-                            screenWidth, // Use the screen width for the footer
+                        width: screenWidth,
                         height: 100, // Height of the footer
                         child: CreativeFooter(),
-                      ), // Empty content or placeholder
-                    ), // Space between video and buttons
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -1035,96 +717,4 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
       },
     );
   }
-}
-
-void _showMemberDialog(BuildContext context, TeamMember member) {
-  showDialog(
-    context: context,
-    builder: (context) {
-      return Directionality(
-        textDirection: TextDirection.rtl, // Right to Left for Arabic text
-        child: AlertDialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          titlePadding: const EdgeInsets.all(16),
-          contentPadding: const EdgeInsets.all(16),
-          insetPadding:
-              const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-          content: SizedBox(
-            width:
-                MediaQuery.of(context).size.width * 0.35, // تحديد عرض الصندوق
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 25,
-                      backgroundImage: AssetImage(member.imageUrl),
-                    ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Text(
-                        member.name,
-                        style: GoogleFonts.elMessiri(
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                          color: const Color.fromRGBO(69, 30, 156, 1),
-                        ),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  "الوظيفة: ${member.position}",
-                  style: GoogleFonts.elMessiri(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  member.description,
-                  style: GoogleFonts.elMessiri(
-                    fontSize: 14,
-                    color: Colors.black87,
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          actions: [
-            OutlinedButton(
-              style: OutlinedButton.styleFrom(
-                side: const BorderSide(
-                    color: Color.fromRGBO(69, 30, 156, 1), width: 1.5),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8.0),
-                ),
-              ),
-              child: Text(
-                "إغلاق",
-                style: GoogleFonts.elMessiri(
-                  fontSize: 16.0,
-                  fontWeight: FontWeight.w600,
-                  color: const Color.fromRGBO(69, 30, 156, 1),
-                ),
-              ),
-              onPressed: () {
-                Navigator.of(context).pop(); // إغلاق النافذة
-              },
-            ),
-          ],
-        ),
-      );
-    },
-  );
 }
