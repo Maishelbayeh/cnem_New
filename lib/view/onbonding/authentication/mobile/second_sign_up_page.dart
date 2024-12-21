@@ -511,8 +511,14 @@ class SecondSignUpPage extends StatelessWidget {
                           CustomButton(
                             buttonText: 'التالي',
                             width: MediaQuery.of(context).size.width,
-                            enabled: controller.isChecked.value,
+                            enabled: controller.isChecked.value &&
+                                !controller.isButtonLoading.value,
                             onTap: () async {
+                              if (controller.isButtonLoading.value)
+                                return; // Prevent multiple presses
+
+                              controller.isButtonLoading.value =
+                                  true; // Start loading
                               controller.printValidationResults();
                               if (controller.validateForm()) {
                                 if (!controller.heardFromPerson.value) {
@@ -547,17 +553,14 @@ class SecondSignUpPage extends StatelessWidget {
                                   );
                                   Get.toNamed("/Home");
                                   showDialog(
-                                    // ignore: use_build_context_synchronously
                                     context: context,
                                     builder: (context) {
                                       return ProfessionalDialog(
                                         onConfirm: () {
-                                          // ignore: avoid_print
                                           print("تم تأكيد الدفع");
                                           Navigator.of(context).pop();
                                         },
                                         onCancel: () {
-                                          // ignore: avoid_print
                                           print("تم إلغاء الدفع");
                                           Navigator.of(context).pop();
                                         },
@@ -578,6 +581,8 @@ class SecondSignUpPage extends StatelessWidget {
 
                                 await fetchSubscription();
                               }
+                              controller.isButtonLoading.value =
+                                  false; // Stop loading
                               controller.clearForm();
                             },
                           ),
@@ -587,7 +592,6 @@ class SecondSignUpPage extends StatelessWidget {
                       if (auth.isShowLoading.value)
                         Container(
                           color: second
-                              // ignore: deprecated_member_use
                               .withOpacity(0.5), // Semi-transparent background
                           child: const Center(
                             child: CircularProgressIndicator(

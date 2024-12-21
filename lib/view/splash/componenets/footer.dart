@@ -167,13 +167,13 @@ class CreativeFooter extends StatelessWidget {
                     ),
                     IconButton(
                       onPressed: () {
-                        _launchURL("https://t.me/cnemonline");
+                        _launchURL("https://t.me/cnem_meeting");
                         // Replace with Telegram URL
                       },
                       icon: Icon(Icons.telegram),
                       color: Colors.white,
                       iconSize: 35,
-                      tooltip: "https://t.me/cnemonline",
+                      tooltip: "https://t.me/cnem_meeting",
                     ),
                   ],
                 ),

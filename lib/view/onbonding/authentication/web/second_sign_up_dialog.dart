@@ -489,8 +489,14 @@ class DialogContent extends StatelessWidget {
                           CustomButton(
                             buttonText: 'التالي',
                             width: MediaQuery.of(context).size.width,
-                            enabled: controller.isChecked.value,
+                            enabled: controller.isChecked.value &&
+                                !controller.isButtonLoading.value,
                             onTap: () async {
+                              if (controller.isButtonLoading.value)
+                                return; // Prevent multiple presses
+
+                              controller.isButtonLoading.value =
+                                  true; // Start loading
                               controller.printValidationResults();
                               if (controller.validateForm()) {
                                 if (!controller.heardFromPerson.value) {
@@ -517,13 +523,13 @@ class DialogContent extends StatelessWidget {
                                   Get.toNamed("/Home");
                                 }
                                 if (sub?.currentPaymentNow != 1.0) {
+                                  auth.isShowLoading.value = false;
                                   Get.snackbar(
                                     'نجاح',
                                     'تم التسجيل بنجاح',
                                     snackPosition: SnackPosition.TOP,
                                   );
                                   Get.toNamed("/Home");
-                                  auth.isShowLoading.value = false;
                                   showDialog(
                                     context: context,
                                     builder: (context) {
@@ -553,6 +559,8 @@ class DialogContent extends StatelessWidget {
 
                                 await fetchSubscription();
                               }
+                              controller.isButtonLoading.value =
+                                  false; // Stop loading
                               controller.clearForm();
                             },
                           ),
@@ -561,7 +569,7 @@ class DialogContent extends StatelessWidget {
                       // Loader widget when isShowLoading is true
                       if (auth.isShowLoading.value)
                         Container(
-                          color: Colors.black
+                          color: second
                               .withOpacity(0.5), // Semi-transparent background
                           child: const Center(
                             child: CircularProgressIndicator(

@@ -26,7 +26,7 @@ class SecondSignFormController extends GetxController {
   var nationality = ''.obs;
   var heardFromPerson = true.obs;
   var isChecked = false.obs;
-
+  var isButtonLoading = false.obs;
   var firstNameError = ''.obs;
 
   var parentneme = ''.obs;
