@@ -102,46 +102,77 @@ class MemberCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
+    // Set width and height dynamically based on screen size
+    double width = screenWidth < 600
+        ? screenWidth * 0.9 // Large width for small screens
+        : screenWidth < 1200
+            ? screenWidth * 0.4 // Medium width for medium screens
+            : screenWidth * 0.22; // Small width for large screens
+    double height = screenWidth < 600
+        ? screenHeight * 0.4 // Large height for small screens
+        : screenWidth < 1200
+            ? screenHeight * 0.6 // Medium height for medium screens
+            : screenHeight * 0.35; // Small height for large screens
+
     return Card(
       elevation: 5,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
         padding: const EdgeInsets.all(16),
-        width: MediaQuery.of(context).size.width * 0.22,
-        height: screenHeight * 0.35,
+        width: width,
+        height: height,
         decoration: BoxDecoration(
-          color: Colors.white, // خلفية بيضاء
+          color: Colors.white, // White background
           borderRadius: const BorderRadius.all(Radius.circular(15)),
           border: Border.all(
-            color: const Color.fromRGBO(69, 30, 156, 1), // إطار بنفسجي
+            color: const Color.fromRGBO(69, 30, 156, 1), // Purple border
             width: 2,
           ),
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage(teamMember.imageUrl),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              teamMember.name,
-              style: GoogleFonts.elMessiri(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: const Color.fromRGBO(69, 30, 156, 1),
+        child: SingleChildScrollView(
+          // Make content scrollable
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: screenWidth < 600
+                    ? 50 // حجم أصغر للشاشات الصغيرة
+                    : screenWidth < 1200
+                        ? 40 // حجم متوسط للشاشات المتوسطة
+                        : 50, // حجم أكبر للشاشات الكبيرة
+                backgroundImage: AssetImage(teamMember.imageUrl),
               ),
-            ),
-            Text(
-              teamMember.position,
-              style: GoogleFonts.elMessiri(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
+              const SizedBox(height: 10),
+              Text(
+                teamMember.name,
+                style: GoogleFonts.elMessiri(
+                  fontSize: screenWidth < 600
+                      ? 18 // حجم أصغر للشاشات الصغيرة
+                      : screenWidth < 1200
+                          ? 16 // حجم متوسط للشاشات المتوسطة
+                          : 18, // حجم أكبر للشاشات الكبيرة
+                  fontWeight: FontWeight.bold,
+                  color: const Color.fromRGBO(69, 30, 156, 1),
+                ),
               ),
-            ),
-          ],
+              const SizedBox(height: 5),
+              Text(
+                teamMember.position,
+                textAlign: TextAlign.center,
+                style: GoogleFonts.elMessiri(
+                  fontSize: screenWidth < 600
+                      ? 16 // حجم أصغر للشاشات الصغيرة
+                      : screenWidth < 1200
+                          ? 14 // حجم متوسط للشاشات المتوسطة
+                          : 16, // حجم أكبر للشاشات الكبيرة
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
