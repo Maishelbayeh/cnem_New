@@ -46,7 +46,11 @@ class CourseCard extends StatelessWidget {
                 course['name'] ?? '',
                 textAlign: TextAlign.center,
                 style: GoogleFonts.elMessiri(
-                  fontSize: 18,
+                  fontSize: screenWidth < 600
+                      ? 18 // حجم أصغر للشاشات الصغيرة
+                      : screenWidth < 1200
+                          ? 16 // حجم متوسط للشاشات المتوسطة
+                          : 18,
                   fontWeight: FontWeight.bold,
                   color: const Color.fromRGBO(69, 30, 156, 1),
                 ),

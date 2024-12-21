@@ -1,3 +1,4 @@
+import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/onbonding/authentication/web/SignInButtonWeb.dart';
 import 'package:cenem/view/onbonding/authentication/web/signUpForm.dart';
 import 'package:cenem/view/onbonding/authentication/web/sign_in_form.dart';
@@ -188,11 +189,11 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
-    final crossAxisCount = screenWidth > 800
-        ? 3
-        : screenWidth > 600
-            ? 2
-            : 1;
+    int crossAxisCount = screenWidth < 600
+        ? 1 // شاشة صغيرة (مثلاً الهواتف) عدد الأعمدة 2
+        : screenWidth < 1200
+            ? 2 // شاشة متوسطة (مثلاً التابلت) عدد الأعمدة 4
+            : 3;
     return LayoutBuilder(
       builder: (context, constraints) {
         bool isLargeScreen = constraints.maxWidth > 800;
@@ -262,7 +263,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                                         _currentIndex = 5;
                                         _scrollToSection(_whoareweSectionKey);
                                       } else if (item == 'فكرة الشبكة') {
-                                        _currentIndex = 6;
+                                        _currentIndex = 1;
                                         launchURL();
                                       }
                                     });
@@ -285,13 +286,23 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                     Padding(
                       padding: const EdgeInsets.only(left: 50),
                       child: Image.asset(
-                        'assets/bank.jpg', // مسار الشعار
-                        height: 100, // ضبط ارتفاع الشعار حسب الحاجة
+                        'assets/bank.jpg',
+                        height: 100,
                         fit: BoxFit.contain,
                       ),
                     ),
                   ]
-                : [], // Empty actions for small screens
+                : [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20.0), // Adds space between logos
+                      child: Image.asset(
+                        'assets/logo.jpg',
+                        height: 100,
+                        fit: BoxFit.contain,
+                      ),
+                    ),
+                  ], // Empty actions for small screens
           ),
           drawer: Drawer(
             child: ListView(
@@ -326,7 +337,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                         _currentIndex = 5;
                         _scrollToSection(_whoareweSectionKey);
                       } else if (item == 'فكرة الشبكة') {
-                        _currentIndex = 6;
+                        _currentIndex = 1;
                         launchURL();
                       }
                       Navigator.pop(context);
@@ -437,7 +448,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                         ),
                       ),
                     ),
-                    const SizedBox(height: 60),
+                    const SizedBox(height: 30),
                     SizedBox(
                       key: _loginSectionKey,
                       height: MediaQuery.of(context).size.height,
@@ -448,14 +459,23 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                             children: [
                               if (isLargeScreen)
                                 Expanded(
-                                    child: Center(
-                                  child: Image.asset(
-                                    'assets/arabworld.png',
-                                    width: screenWidth * 0.5,
-                                    height: screenHeight * 0.5,
-                                    fit: BoxFit.cover,
+                                  child: Center(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'assets/arabworld.png',
+                                          width: screenWidth *
+                                              0.5, // Keep width as desired
+                                          height: screenHeight *
+                                              0.5, // Increased height for larger image
+                                          fit: BoxFit.contain,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                )),
+                                ),
                               Expanded(
                                 child: Padding(
                                   padding: const EdgeInsets.all(40.0),
@@ -464,9 +484,6 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                                     crossAxisAlignment:
                                         CrossAxisAlignment.start,
                                     children: [
-                                      const SizedBox(
-                                        height: 100,
-                                      ),
                                       Text(
                                         "تسجيل الدخول",
                                         style: GoogleFonts.elMessiri(
@@ -497,56 +514,61 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                     SizedBox(
                       key: _newsubscriberSectionKey,
                       height: MediaQuery.of(context).size.height,
-                      child: Scaffold(
-                        backgroundColor: Colors.white,
-                        body: Directionality(
+                      child: SingleChildScrollView(
+                        child: Directionality(
                           textDirection: TextDirection.rtl,
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(40.0),
-                                  child: Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      const SizedBox(
-                                        height: 150,
-                                      ),
-                                      Text(
-                                        "إنشاء حساب",
-                                        style: GoogleFonts.elMessiri(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold,
-                                          color: const Color.fromRGBO(
-                                              69, 30, 156, 1),
+                          child: Container(
+                            color: Colors.white,
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(40.0),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        const SizedBox(
+                                            height:
+                                                20), // Adjusted height for better spacing
+                                        Text(
+                                          "إنشاء حساب",
+                                          style: GoogleFonts.elMessiri(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold,
+                                            color: const Color.fromRGBO(
+                                                69, 30, 156, 1),
+                                          ),
+                                          textAlign: TextAlign.center,
                                         ),
-                                        textAlign: TextAlign.center,
-                                      ),
-                                      const SizedBox(height: 20),
-                                      SignUpForm(screenWidth, screenHeight),
-                                      SignupWebButton(),
-                                    ],
+                                        const SizedBox(height: 20),
+                                        SignUpForm(screenWidth, screenHeight),
+                                        SignupWebButton(),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              if (isLargeScreen)
-                                const Expanded(
-                                    child: Column(
-                                  children: [
-                                    SizedBox(
-                                      height: 100,
+                                if (isLargeScreen)
+                                  Expanded(
+                                    child: Container(
+                                      color: Colors.white,
+                                      child: const Column(
+                                        children: [
+                                          SizedBox(height: 100),
+                                          AutoPlayVideoContainer(
+                                            videoPath: 'assets/signIn.mp4',
+                                            height: 700,
+                                            width: 700,
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                    AutoPlayVideoContainer(
-                                      videoPath: 'assets/signIn.mp4',
-                                      height: 700, // Custom height
-                                      width: 700, // Custom width
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ],
-                                )),
-                            ],
+                                  ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
@@ -561,10 +583,11 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                             children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width > 600
-                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
-                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  horizontal: Responsive.isMobile(context)
+                                      ? 20.0
+                                      : Responsive.isLargeMobile(context)
+                                          ? 50.0 // وسط بين الموبايل والديسكتوب
+                                          : 100.0, // بادينغ أكبر للشاشات الأكبر
                                   vertical: 20.0,
                                 ),
                                 child: GridView.builder(
@@ -604,10 +627,11 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                             children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width > 600
-                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
-                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  horizontal: Responsive.isMobile(context)
+                                      ? 20.0
+                                      : Responsive.isLargeMobile(context)
+                                          ? 50.0 // وسط بين الموبايل والديسكتوب
+                                          : 100.0, // بادينغ أكبر للشاشات الأكبر
                                   vertical: 20.0,
                                 ),
                                 child: GridView.builder(
@@ -664,10 +688,11 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
                             children: [
                               Padding(
                                 padding: EdgeInsets.symmetric(
-                                  horizontal:
-                                      MediaQuery.of(context).size.width > 600
-                                          ? 100.0 // بادينغ كبير للشاشات الواسعة
-                                          : 20.0, // بادينغ أصغر للشاشات الصغيرة
+                                  horizontal: Responsive.isMobile(context)
+                                      ? 20.0
+                                      : Responsive.isLargeMobile(context)
+                                          ? 50.0 // وسط بين الموبايل والديسكتوب
+                                          : 100.0, // بادينغ أكبر للشاشات الأكبر
                                   vertical: 20.0,
                                 ),
                                 child: GridView.builder(
