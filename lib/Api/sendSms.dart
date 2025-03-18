@@ -30,7 +30,7 @@ Future<bool> sendSmsToConfirmPhone(String phone) async {
     }
 
     if (response.statusCode == 200) {
-      if (confirmEmail!) {
+      if (confirmEmail) {
         // Optionally handle the case if needed
       } else {
         Get.find<AuthController>().isShowLoading.value = false;

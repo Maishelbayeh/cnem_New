@@ -1,5 +1,6 @@
-import 'dart:ui' as ui;
+// ignore: deprecated_member_use, avoid_web_libraries_in_flutter
 import 'dart:html' as html;
+import 'dart:ui_web' as ui;
 
 import 'package:cenem/Api/config.dart';
 import 'package:cenem/Api/loginApi.dart';
@@ -40,7 +41,7 @@ class Iframe extends StatelessWidget {
       color: bgColor,
       width: 400,
       height: 120,
-      child: HtmlElementView(viewType: 'iframe'),
+      child: const HtmlElementView(viewType: 'iframe'),
     );
   }
 }

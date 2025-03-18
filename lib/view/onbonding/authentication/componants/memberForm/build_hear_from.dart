@@ -18,7 +18,9 @@ Widget buildHeardFromPersonSwitch() {
           controller.parentTokenController.clear();
         }
       },
-      validator: (String? value) {},
+      validator: (String? value) {
+        return null;
+      },
     );
   });
 }

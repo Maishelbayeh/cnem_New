@@ -1,6 +1,5 @@
 import 'package:cenem/Api/UserSignUpApi.dart';
 import 'package:cenem/Api/loginApi.dart';
-import 'package:cenem/Api/sendSms.dart';
 import 'package:cenem/controllers/confirmSmsController.dart';
 import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';

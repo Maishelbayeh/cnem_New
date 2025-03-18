@@ -1,17 +1,12 @@
-import 'package:cenem/main.dart';
-import 'package:cenem/view/onbonding/authentication/componants/animationRive.dart';
-import 'package:cenem/view/onbonding/authentication/componants/customPosition.dart';
 import 'package:cenem/view/onbonding/authentication/web/confirmsms.dart';
 import 'package:cenem/view/onbonding/authentication/web/newpasscodedialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:cenem/Api/UserSignUpApi.dart';
 import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/view/onbonding/payment/recurenccypayment_html.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/user/pages/users/settings.dart';
 import 'package:cenem/view%20model/responsive.dart';
-import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/view/onbonding/authentication/term_condition_form.dart';
 import 'package:cenem/view/onbonding/authentication/web/bank_info_dialog.dart';
 import 'package:cenem/view/onbonding/authentication/web/second_sign_up_dialog.dart';
@@ -52,9 +47,8 @@ Widget _buildDialog(
   final Size screenSize = MediaQuery.of(context).size;
   double dialogWidth = screenSize.width * widthFactor;
   double dialogHeight = screenSize.height * heightFactor;
-  final AuthController myController = Get.find();
+  Get.find();
 
-  bool isb = false;
   return Center(
     child: Container(
       width: dialogWidth,
@@ -84,12 +78,9 @@ Widget _buildDialog(
 
             switch (currentRoute) {
               case '/SignIn':
-                isb = true;
                 return Signin(true, dialogWidth, dialogHeight);
 
               case '/signup':
-                isb = true;
-
                 return Signin(false, dialogWidth, dialogHeight);
               case '/NewPass':
                 return const NewPass();
@@ -98,10 +89,8 @@ Widget _buildDialog(
               case '/confirmEmail':
                 return ConfirmEmailDialog();
               case '/Confirm condition':
-                isb = true;
                 return const TermsAndConditionsPage();
               case '/newpasscode':
-                isb = true;
                 return ForgotPasswordDialog();
               case '/settings':
                 return const settings();

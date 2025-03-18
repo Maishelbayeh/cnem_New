@@ -1,4 +1,3 @@
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
@@ -6,7 +5,6 @@ import 'package:cenem/view/custom%20componant/timer_text.dart';
 import 'package:cenem/view/intro/components/description_text.dart';
 import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/controllers/confirmController.dart';
-import 'package:cenem/view/onbonding/customdialog.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
@@ -19,8 +17,6 @@ class ForgotPasswordScreen extends StatefulWidget {
 class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   final ConfirmEmailController _confirmEmailController =
       Get.put(ConfirmEmailController());
-  final DialogNavigationController _navigationController =
-      Get.find<DialogNavigationController>();
   final AuthController controller = Get.put(AuthController());
   Future<void> _submitOTP() async {
     bool success = await _confirmEmailController

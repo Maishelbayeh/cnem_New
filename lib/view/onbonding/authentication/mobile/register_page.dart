@@ -1,6 +1,4 @@
-import 'package:cenem/Api/UserSignUpApi.dart';
 import 'package:cenem/res/constants.dart';
-
 import 'package:cenem/view/intro/components/description_text.dart';
 import 'package:cenem/view/onbonding/authentication/mobile/registerform.dart';
 import 'package:flutter/material.dart';

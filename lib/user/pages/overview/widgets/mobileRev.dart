@@ -1,6 +1,5 @@
 import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 final Map<String, String> revenue = {
   "ارباح هذا الشهر": "0",

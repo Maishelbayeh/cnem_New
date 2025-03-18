@@ -39,7 +39,7 @@ void showCustomDialogonetime() {
           ),
           const AreaInfoText(
             title: "الاشتراك لمره واحده",
-            text: "25 دولارا",
+            text: "35 دولارا",
           ),
 
           // Add the slider to control the visibility of the fees

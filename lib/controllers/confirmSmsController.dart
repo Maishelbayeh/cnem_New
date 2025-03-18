@@ -69,8 +69,7 @@ class ConfirmphoneController extends GetxController {
 
 void confirmDialog(BuildContext context, String? phone) {
   final AuthController authController = Get.put(AuthController());
-  final ConfirmphoneController confirmphoneController =
-      Get.put(ConfirmphoneController());
+  Get.put(ConfirmphoneController());
   final SignUpFormController signUpFormController =
       Get.put(SignUpFormController());
 

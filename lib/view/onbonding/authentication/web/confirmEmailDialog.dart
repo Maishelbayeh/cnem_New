@@ -1,7 +1,6 @@
 import 'package:cenem/controllers/auth_controller.dart';
 import 'package:cenem/controllers/confirmController.dart';
 import 'package:cenem/controllers/confirmSmsController.dart';
-import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view%20model/responsive.dart';
@@ -20,8 +19,6 @@ class ConfirmEmailDialog extends StatefulWidget {
 class _ConfirmEmailDialogState extends State<ConfirmEmailDialog> {
   final ConfirmEmailController _confirmEmailController =
       Get.put(ConfirmEmailController());
-  final DialogNavigationController _navigationController =
-      Get.find<DialogNavigationController>();
   final AuthController controller = Get.put(AuthController());
   final TextEditingController _pinController = TextEditingController();
 

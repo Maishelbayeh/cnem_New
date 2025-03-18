@@ -1,7 +1,5 @@
 import 'package:cenem/Api/fetchmember.dart';
-import 'package:cenem/Api/getchildren.dart';
 import 'package:cenem/Api/paymentApi.dart';
-import 'package:cenem/Api/reserpasscode.dart';
 import 'package:cenem/controllers/Membercontroller.dart';
 import 'package:cenem/controllers/navigation_controller.dart';
 import 'package:cenem/main.dart';
@@ -97,7 +95,7 @@ class DialogContent extends StatelessWidget {
   }
 
   Widget _buildDialogContent(BuildContext context) {
-    final backcontroller = Get.find<DialogNavigationController>();
+    Get.find<DialogNavigationController>();
     return Center(
       child: SingleChildScrollView(
         child: Padding(
@@ -476,7 +474,7 @@ class DialogContent extends StatelessWidget {
                       ]),
                     ),
                     const Text(
-                        "استخدامك لرمز شخص في الشبكة يمنحك خصمًا على الاشتراك الشهري لتدفع\$\25 بدلاً من \$\30."),
+                        "استخدامك لرمز شخص في الشبكة يمنحك خصمًا على الاشتراك الشهري لتدفع\$\35 بدلاً من \$\30."),
                   ],
                 );
               }),

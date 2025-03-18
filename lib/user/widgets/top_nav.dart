@@ -11,6 +11,7 @@ import 'package:cenem/view/mobile_member/pages/settings.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view/onbonding/customdialog.dart';
+import 'package:cenem/view/onbonding/payment/payment.dart';
 import 'package:get/get.dart';
 
 final authController = Get.find<AuthController>();
@@ -119,6 +120,33 @@ AppBar topNavigationBar(BuildContext context, GlobalKey<ScaffoldState> key) =>
                       ),
                     );
                   }
+                },
+                iconSize: iconSize,
+              ),
+              SizedBox(width: spacing),
+
+              /// حركة دفعة
+              buildTooltipButton(
+                context,
+                message: "حركة دفعة ",
+                icon: Icons.attach_money,
+                onTap: () {
+                  Get.toNamed("/Home");
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return ProfessionalDialog(
+                        onConfirm: () {
+                          print("تم تأكيد الدفع");
+                          Navigator.of(context).pop();
+                        },
+                        onCancel: () {
+                          print("تم إلغاء الدفع");
+                          Navigator.of(context).pop();
+                        },
+                      );
+                    },
+                  );
                 },
                 iconSize: iconSize,
               ),

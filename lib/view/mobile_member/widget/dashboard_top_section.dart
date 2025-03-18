@@ -2,7 +2,6 @@ import 'package:cenem/res/variables.dart';
 import 'package:cenem/view/mobile_member/components/nav_bar.dart';
 import 'package:cenem/view/mobile_member/components/top_card.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class DashboardTopSection extends StatelessWidget {
   const DashboardTopSection({
