@@ -263,16 +263,32 @@ String extractPhoneNumber(String? phoneNumber) {
     return "";
   }
 
-  // Define a list of common country codes
   final countryCodes = [
-    '+970',
-    '+972',
-    '+971',
-    '+1',
-    '+20',
-    '+90',
-    '+962',
-    '970'
+    '+970', // فلسطين
+    '+972', // إسرائيل
+    '+971', // الإمارات
+    '+1', // الولايات المتحدة
+    '+20', // مصر
+    '+90', // تركيا
+    '+962', // الأردن
+    '+973', // البحرين
+    '+965', // الكويت
+    '+966', // السعودية
+    '+967', // اليمن
+    '+974', // قطر
+    '+968', // عمان
+    '+963', // سوريا
+    '+961', // لبنان
+    '+964', // العراق
+    '+249', // السودان
+    '+218', // ليبيا
+    '+216', // تونس
+    '+213', // الجزائر
+    '+212', // المغرب
+    '+222', // موريتانيا
+    '+252', // الصومال
+    '+253', // جيبوتي
+    '+269', // جزر القمر
   ];
 
   // Iterate over country codes and remove the matching one
@@ -306,7 +322,25 @@ String getCountryCodeFromPhone(String? phoneNumber) {
     '+1': 'US', // United States
     '+20': 'EG', // Egypt
     '+90': 'TR', // Turkey
-    '+971': 'AE' // United Arab Emirates
+    '+971': 'AE', // United Arab Emirates
+    '+973': 'BH', // Bahrain
+    '+965': 'KW', // Kuwait
+    '+966': 'SA', // Saudi Arabia
+    '+967': 'YE', // Yemen
+    '+974': 'QA', // Qatar
+    '+968': 'OM', // Oman
+    '+963': 'SY', // Syria
+    '+961': 'LB', // Lebanon
+    '+964': 'IQ', // Iraq
+    '+249': 'SD', // Sudan
+    '+218': 'LY', // Libya
+    '+216': 'TN', // Tunisia
+    '+213': 'DZ', // Algeria
+    '+212': 'MA', // Morocco
+    '+222': 'MR', // Mauritania
+    '+252': 'SO', // Somalia
+    '+253': 'DJ', // Djibouti
+    '+269': 'KM', // Comoros
   };
 
   for (String code in countryCodes.keys) {

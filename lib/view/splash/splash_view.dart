@@ -173,7 +173,7 @@ class _BackgroundVideoAppState extends State<BackgroundVideoApp> {
 
   void launchURL() async {
     const url =
-        'https://www.youtube.com/watch?v=ONBzrKkW1yY'; // Replace with your desired URL
+        'https://youtu.be/GOEjPh3h0CU?si=nwUqS8IsT0s5cuja'; // Replace with your desired URL
     // ignore: deprecated_member_use
     if (await canLaunch(url)) {
       // ignore: deprecated_member_use

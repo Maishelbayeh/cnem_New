@@ -1,8 +1,6 @@
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
-import 'package:get/get.dart';
-
 import '../../../res/constants.dart';
 
 class MobileTopNavigationBar extends StatelessWidget {
